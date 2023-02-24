@@ -39,12 +39,28 @@ compiled$whgProp <- as.numeric(compiled$whgProp)
 ## create a dataset without the Mesolithic Hunter-Gatherers and Anatolian Farmers
 neoOnly <- compiled[compiled$Region != "HG" & compiled$Region != "anatoliaEF",]
 
+## read in data for supplementary figures
+suppData <- read.csv("supplementaryData.csv")
+suppData$Region <- factor(suppData$Region, levels=c("North Central", "South Central", "balkan", "mediterranean", "HG", "anatoliaEF"))
+
+## color palettes for plotting
 palette2 <- c("#1B9E77", "#82d682", "#D95F02", "#1275A3", "#BB83A1", "#A8DFF1") ## color palette: including HG and EF colors
 palette3 <- c("#1B9E77", "#82d682", "#D95F02", "#1275A3", "grey75") ## color palette: no HG or EF colors, modern samples in grey
 palette4 <- c("#1B9E77", "#82d682", "#D95F02", "#1275A3", "#BB83A1", "#A8DFF1", "grey75") ## color palette: including HG and EF colors, modern samples in grey
 paleoColors <- c("#495B76", "#609FA6") ## color palette: paleopathology presence/absence
 
 ```
+## Results
+```{r Results, echo=FALSE, out.width="50%", warning=FALSE}
+females <- subset(neoOnly, Sex=="F")
+males <- subset(neoOnly, Sex=="M")
+
+ttest1 <- pairwise.t.test(neoOnly$imputed_prs_scaled, neoOnly$Region)
+lm1 <- lm(femur_estimated ~ Sex * Region, data = compiled)
+lm2 <- lm(femur_estimated ~ Region, data=males)
+lm3 <- lm(femur_estimated ~ Region, data=females)
+```
+
 
 ## Fig 2
 ```{r Fig2, echo=FALSE, out.width="50%", warning=FALSE}
@@ -75,34 +91,16 @@ map2 <- ggplot(data = europe) +
 print(map2)
 
 ## import the smartPCA data
-impPCA <- read.table("CEuroImputed_Neo98imputed_noHG_777merged_PCA.evec")
-## remove prefix added by smartPCA
-impPCA$V1 <- str_replace(impPCA$V1, "^0:", "")
-## Create columns needed for plotting
-impPCA$Region <- NA
-impPCA$prs <- NA
-impPCA$sex <- NA
-## loop to populate the PCA columns with data from compiled
-for(i in 1:nrow(impPCA)){
-   if(impPCA$V12[i] != "???"){
-      impPCA$geoRegion[i] <- "modern"
-   } else {
-      impPCA$Region[i] <- as.character(compiled[compiled$dna_ID == impPCA$V1[i], "Region"])
-      impPCA$prs[i] <- as.numeric(compiled[compiled$dna_ID == impPCA$V1[i], "prs_scaled"])
-      impPCA$sex[i] <- as.numeric(compiled[compiled$dna_ID == impPCA$V1[i], "Sex"])
-   }
-}
+impPCA <- read.csv("impPCA_neoData.csv")
 impPCA$Region <- as.factor(impPCA$Region)
-## rearrange factor levels
+## reorganize factor levels for plotting
 impPCA$Region <- factor(impPCA$Region, levels=c("North Central", "South Central", "balkan", 
-                                                          "mediterranean", "HG", "modern"))
+                                                          "mediterranean", "modern"))
 ## make the imputed PCA plot
-ggplot(data=impPCA[impPCA$geoRegion != "HG",], aes(x=V2, y=-V3, col=geoRegion, stroke=0)) +
+ggplot(data=impPCA, aes(x=PC1, y=-PC2, col=Region, stroke=0)) +
     geom_point() +
     scale_color_manual(values=palette3) +
-    #guides(size="none") +
-    #geom_segment(aes(x=X1, xend=imp.1, y=X2, yend=imp.2, size=1, col=array), inherit.aes=FALSE,              data=plotting) +
-    #geom_label(aes(x=X1, y=X2, label=ID), position="identity") +
+    labs(x="PC1", y="PC2") +
     ggtitle("2C) Genetic Ancestry: projected PCA (imputed)") +
     theme_light()
 
@@ -184,6 +182,7 @@ ggplot(data=neoOnly[!(is.na(neoOnly$Sex)),], aes(x=Region, y=d15N, shape=Sex, co
    ggtitle("3D: sex differences in d15N")
 
 ```
+
 ## Fig 4
 ```{r fig4, echo=FALSE, out.width="50%", warning=FALSE}
 ## subset data for plotting just Central European samples
@@ -241,33 +240,20 @@ ggplot(data=LEHplot[!is.na(LEHplot$Sex) & plotdata$LEH != "",], aes(y=femur_esti
 ## Fig 5
 ```{r fig5, echo=FALSE, out.width="50%", warning=FALSE}
 ## read in data from smartPCA including WHG and Anatolian Farmers
-impPCAall <- read.table("CEuroimputed_imputed_Neo98imputed_SamAnaimputed_samWHGimputed_777merged_PCA.evec")
-## removing prefixes added by smartpca
-impPCAall$V1 <- str_replace(impPCAall$V1, "^[0-9]*:", "")
-
-## loop to populate the smartPCA data with their regions for plotting
-impPCAall$Region <- NA
-for(i in 1:nrow(impPCAall)){
-   if(impPCAall$V12[i] != "???"){
-      impPCAall$Region[i] <- "modern"
-   } else {
-      impPCAall$Region[i] <- as.character(compiled[compiled$dna_ID == impPCAall$V1[i], "Region"])
-      # impPCAall$prs[i] <- as.numeric(compiled[compiled$dna_ID == impPCAall$V1[i], "prs_scaled"])
-      # impPCAall$sex[i] <- as.numeric(compiled[compiled$dna_ID == impPCAall$V1[i], "Sex"])
-   }
-}
+impPCAall <- read.csv("impPCA_allData.csv")
 impPCAall$Region <- as.factor(impPCAall$Region)
 ## reorder the Region factor levels
 impPCAall$Region <- factor(impPCAall$Region, levels=c("North Central", "South Central", "balkan", "mediterranean", "HG", "anatoliaEF", "modern"))
-ggplot(data=impPCAall, aes(x=V2, y=-V3, col=Region, stroke=0)) +
+
+ggplot(data=impPCAall, aes(x=PC1, y=-PC2, col=Region, stroke=0)) +
     geom_point() +
     scale_color_manual(values=palette4) +
+    labs(x="PC1", y="PC2") +
     ggtitle("5A) Genetic Ancestry: projected PCA (imputed)") +
     theme_light()
 
 
 
-#####
 ## read in the ADMIXTURE results 
 mix <- read.table("admixtureData.txt", header=TRUE)
 ## reorder factor levels for plotting
@@ -275,7 +261,7 @@ mix$Region <- factor(mix$Region, levels=c("North Central", "South Central", "bal
                                                 "mediterranean", "HG", "anatoliaEF"))
 ## order dataframe by admixture proportion for plotting
 mix$ID <-fct_reorder(mix$ID, mix$EF)
-## reshape admixture data for plotting
+## make admixture data long form for plotting
 toplotMix <- reshape2::melt(mix, c("ID", "Region", "Sex"))
 toplotMix$variable <- factor(toplotMix$variable, levels=c("EF", "WHG"))
 
@@ -324,56 +310,116 @@ ggvenn(venn, fill_color = c("#0073C2FF", "#EFC000FF", "#CD534CFF", "grey"), stro
 
 ```
 
-unimpPCA <- read.table("medNeolithic_balkanNeolithic_CEuro140_777merged_noHG_PCA.evec")
-unimpPCA$V1 <- str_replace(unimpPCA$V1, "^[0-9]*:", "")
-# ANI163 is listed in AADR v50 as potentially contaminated and is being removed
-unimpPCA <- unimpPCA[-match("ANI163", unimpPCA$V1),]
-unimpPCA$geoRegion <- NA
-for(i in 1:nrow(unimpPCA)){
-   if(unimpPCA$V12[i] != "Control"){
-      unimpPCA$geoRegion[i] <- "modern"
-   } else if(unimpPCA$V1[i] %in% compiled$dna_ID){
-      unimpPCA$geoRegion[i] <- as.character(compiled[compiled$dna_ID == unimpPCA$V1[i], "Region"])
-   }
-}
-unimpPCA$geoRegion <- as.factor(unimpPCA$geoRegion)
+## Supp Fig 2
+```{r suppFig2, echo=FALSE, out.width="50%", warning=FALSE}
 
-unimpPCA$geoRegion <- factor(unimpPCA$geoRegion, levels=c("Northern LBK", "Southern LBK", "balkan",
-                                                          "mediterranean", "HG", "modern"))
-ggplot(data=unimpPCA[unimpPCA$geoRegion != "HG",], aes(x=-V2, y=V3, col=geoRegion, stroke=0)) +
+lm41 <- lm(asMales_prs ~ Sex + Region, data=suppData)
+lm42 <- lm(asFemales_prs ~ Sex + Region, data=suppData)
+lm43 <- lm(sexspec_prs ~ Sex + Region, data=suppData)
+lm44 <- lm(combo_prs ~ Sex + Region, data=suppData)
+# lm44 <- lm(clumpImp ~ Region, data=suppData)
+# lm45 <- lm(clumpImp_sibs ~ Region, data=suppData)
+# lm46 <- lm(clumpUnImp ~ Sex * Region, data=suppData)
+# lm47 <- lm(clumpUnImp_sibs ~ Sex * Region, data=suppData)
+
+ggplot(data=suppData, aes(y=combo_prs, x=Region, col=Region, shape=Sex, stroke=0)) +
+   #geom_boxplot() +
+   geom_beeswarm(dodge.width=0.75, cex=2) +
+   stat_summary(fun = "mean",
+               fun.max = function(x) mean(x) + sd(x) / sqrt(length(x)),
+               fun.min = function(x) mean(x) - sd(x) / sqrt(length(x)), 
+               geom = "errorbar", col = "black", width=.5, position="dodge") +
+   stat_summary(fun = "mean", geom = "point", col = "black", size=2, position="dodge") +
+   scale_color_manual(values=palette2) +
+   theme_light() +
+   ggtitle("A) Neale Lab Combined Sex sumstats")
+
+ggplot(data=suppData, aes(y=asMales_prs, x=Region, col=Region, shape=Sex, stroke=0)) +
+   geom_beeswarm(dodge.width=0.75, cex=2) +
+   stat_summary(fun = "mean",
+               fun.max = function(x) mean(x) + sd(x) / sqrt(length(x)),
+               fun.min = function(x) mean(x) - sd(x) / sqrt(length(x)), 
+               geom = "errorbar", col = "black", width=.5, position="dodge") +
+   stat_summary(fun = "mean", geom = "point", col = "black", size=2, position="dodge") +
+   scale_color_manual(values=palette2) +
+   theme_light() +
+   ggtitle("B) Neale Lab Male sumstats")
+
+ggplot(data=suppData, aes(y=asFemales_prs, x=Region, col=Region, shape=Sex, stroke=0)) +
+   geom_beeswarm(dodge.width=0.75, cex=2) +
+   stat_summary(fun = "mean",
+               fun.max = function(x) mean(x) + sd(x) / sqrt(length(x)),
+               fun.min = function(x) mean(x) - sd(x) / sqrt(length(x)), 
+               geom = "errorbar", col = "black", width=.5, position="dodge") +
+   stat_summary(fun = "mean", geom = "point", col = "black", size=2, position="dodge") +
+   scale_color_manual(values=palette2) +
+   theme_light() +
+   ggtitle("C) Neale Lab Female sumstats")
+
+ggplot(data=suppData, aes(y=sexspec_prs, x=Region, col=Region, shape=Sex, stroke=0)) +
+   geom_beeswarm(dodge.width=0.75, cex=2) +
+   stat_summary(fun = "mean",
+               fun.max = function(x) mean(x) + sd(x) / sqrt(length(x)),
+               fun.min = function(x) mean(x) - sd(x) / sqrt(length(x)), 
+               geom = "errorbar", col = "black", width=.5, position="dodge") +
+   stat_summary(fun = "mean", geom = "point", col = "black", size=2, position="dodge") +
+   scale_color_manual(values=palette2) +
+   theme_light() +
+   ggtitle("D) Neale Lab sex-specific sumstats")
+
+
+```
+
+## Supp Fig 3
+```{r suppFig3, echo=FALSE, warning=FALSE}
+ggplot(data=suppData, aes(y=siblings_prs_ldpred, x=Region, col=Region, stroke=0)) +
+   geom_beeswarm(cex=2) +
+   stat_summary( fun = "mean",
+               fun.max = function(x) mean(x) + sd(x) / sqrt(length(x)),
+               fun.min = function(x) mean(x) - sd(x) / sqrt(length(x)), 
+               geom = "errorbar", col = "black", width=.5) +
+   stat_summary(fun = "mean", geom = "point", col = "black", size=2) +
+   scale_color_manual(values=palette2) +
+   theme_light() +
+   geom_signif(comparisons=list(c("Northern LBK", "mediterranean")), test=t.test) + 
+   ggtitle("A) Sibling LDPred2 PRS")
+
+ggplot(data=compiled, aes(y=imputed_prs_scaled, x=femur_estimated)) +
+   geom_point(aes(col=Region)) +
+   geom_smooth(method="lm") +
+   scale_color_manual(values=palette2) +
+   theme_light() +
+   ggtitle("B) Sibling PRS vs Femur length")
+
+```
+## Supp Fig 4
+```{r suppFig4, echo=FALSE, warning=FALSE}
+## import data for the unimputed Neolithic PCA
+unimpPCA <- read.csv("unimpPCA_neoData.csv")
+unimpPCA$Region <- as.factor(unimpPCA$Region)
+## reorder the factor levels for plotting
+unimpPCA$Region <- factor(unimpPCA$Region, levels=c("North Central", "South Central", "balkan",
+                                                          "mediterranean", "modern"))
+
+ggplot(data=unimpPCA, aes(x=-PC1, y=PC2, col=Region, stroke=0)) +
     geom_point() +
     scale_color_manual(values=palette3) +
-    #guides(size="none") +
-    #geom_segment(aes(x=X1, xend=imp.1, y=X2, yend=imp.2, size=1, col=array), inherit.aes=FALSE,              data=plotting) +
-    #geom_label(aes(x=X1, y=X2, label=ID), position="identity") +
     labs(x="PC1", y="PC2") +
     ggtitle("A) Genetic Ancestry: projected PCA (unimputed)") +
     theme_light()
 
 
-#####
+## import all unimputed PCA data
+unimpPCAall <- read.csv("unimpPCA_allData.csv")
+unimpPCAall$Region <- as.factor(unimpPCAall$Region)
+## reorder factor levels for plotting
+unimpPCAall$Region <- factor(unimpPCAall$Region, levels=c("North Central", "South Central", "balkan", "mediterranean", "HG", "anatoliaEF", "modern"))
 
-unimpPCAall <- read.table("../LBK_data/MedHG_AnatoliaEF_medNeo_balkanNeo_Sam140LBK_777merged_PCA.evec")
-unimpPCAall$V1 <- str_replace(unimpPCAall$V1, "^[0-9]*:", "")
-unimpPCAall$geoRegion <- NA
-for(i in 1:nrow(unimpPCAall)){
-   if(unimpPCAall$V12[i] != "Control"){
-      unimpPCAall$geoRegion[i] <- "modern"
-   } else if(unimpPCAall$V1[i] %in% compiled$dna_ID){
-      unimpPCAall$geoRegion[i] <- as.character(compiled[compiled$dna_ID == unimpPCAall$V1[i], "Region"])
-   }
-}
-
-unimpPCAall$geoRegion <- as.factor(unimpPCAall$geoRegion)
-unimpPCAall$geoRegion <- factor(unimpPCAall$geoRegion, levels=c("Northern LBK", "Southern LBK", "balkan", "mediterranean", "HG", "anatoliaEF", "modern"))
-unimpPCAall[is.na(unimpPCAall$geoRegion) & unimpPCAall$V2 > 0.05, "geoRegion"] <- "HG"
-
-ggplot(data=unimpPCAall[!is.na(unimpPCAall$geoRegion),], aes(x=-V2, y=V3, col=geoRegion, stroke=0)) +
+ggplot(data=unimpPCAall, aes(x=-PC1, y=PC2, col=Region, stroke=0)) +
     geom_point() +
     scale_color_manual(values=palette4) +
-    #guides(size="none") +
-    #geom_segment(aes(x=X1, xend=imp.1, y=X2, yend=imp.2, size=1, col=array), inherit.aes=FALSE,              data=plotting) +
-    #geom_label(aes(x=X1, y=X2, label=ID), position="identity") +
     labs(x="PC1", y="PC2") +
     ggtitle("B) Genetic Ancestry: projected PCA (unimputed)") +
     theme_light()
+```
+
