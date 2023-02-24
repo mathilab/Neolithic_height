@@ -1,0 +1,1004 @@
+dna_ID,PC1,PC2,Ethnicity,Region
+HGDP00511,-0.0322,0.0129,French,modern
+HGDP00512,-0.0278,0.0114,French,modern
+HGDP00513,-0.0292,0.0139,French,modern
+HGDP00514,-0.0322,0.0118,French,modern
+HGDP00515,-0.0338,0.0145,French,modern
+HGDP00516,-0.0271,0.0056,French,modern
+HGDP00517,-0.0307,0.0136,French,modern
+HGDP00518,-0.0326,0.0129,French,modern
+HGDP00519,-0.0375,0.0073,French,modern
+HGDP00522,-0.03,0.011,French,modern
+HGDP00523,-0.0364,0.0125,French,modern
+HGDP00524,-0.0282,0.0197,French,modern
+HGDP00525,-0.029,0.0122,French,modern
+HGDP00526,-0.0324,0.0107,French,modern
+HGDP00527,-0.0319,0.0119,French,modern
+HGDP00528,-0.0315,0.012,French,modern
+HGDP00529,-0.029,0.0124,French,modern
+HGDP00531,-0.0308,0.0258,French,modern
+HGDP00533,-0.0396,0.0046,French,modern
+HGDP00534,-0.0313,0.0121,French,modern
+HGDP00535,-0.0371,0.0082,French,modern
+HGDP00536,-0.0229,0.0165,French,modern
+HGDP00537,-0.0285,0.0128,French,modern
+HGDP00538,-0.0292,0.0138,French,modern
+HGDP00539,-0.028,0.0164,French,modern
+HGDP00557,0.0325,-0.0149,Druze,modern
+HGDP00558,0.0353,-0.0175,Druze,modern
+HGDP00559,0.0298,-0.0167,Druze,modern
+HGDP00560,0.0335,-0.0243,Druze,modern
+HGDP00561,0.0317,-0.0117,Druze,modern
+HGDP00562,0.0321,-0.0149,Druze,modern
+HGDP00563,0.0326,-0.0117,Druze,modern
+HGDP00564,0.0308,-0.0156,Druze,modern
+HGDP00565,0.0354,-0.0168,Druze,modern
+HGDP00566,0.0326,-0.0063,Druze,modern
+HGDP00567,0.0378,-0.0184,Druze,modern
+HGDP00568,0.0327,-0.0272,Druze,modern
+HGDP00569,0.0299,-0.0133,Druze,modern
+HGDP00571,0.026,-0.0178,Druze,modern
+HGDP00572,0.0351,-0.0182,Druze,modern
+HGDP00573,0.0321,-0.0154,Druze,modern
+HGDP00574,0.0375,-0.0215,Druze,modern
+HGDP00575,0.033,-0.0201,Druze,modern
+HGDP00577,0.0348,-0.0178,Druze,modern
+HGDP00578,0.0321,-0.0088,Druze,modern
+HGDP00579,0.0288,-0.007,Druze,modern
+HGDP00580,0.0276,-0.012,Druze,modern
+HGDP00582,0.0329,-0.0112,Druze,modern
+HGDP00583,0.0352,-0.027,Druze,modern
+HGDP00584,0.0287,-0.0144,Druze,modern
+HGDP00586,0.0311,-0.0064,Druze,modern
+HGDP00587,0.0262,-0.0105,Druze,modern
+HGDP00588,0.037,-0.0189,Druze,modern
+HGDP00591,0.0297,-0.0182,Druze,modern
+HGDP00594,0.0336,-0.0095,Druze,modern
+HGDP00595,0.0305,-0.0203,Druze,modern
+HGDP00597,0.0313,-0.0098,Druze,modern
+HGDP00598,0.0344,-0.0128,Druze,modern
+HGDP00599,0.0272,-0.0219,Druze,modern
+HGDP00600,0.0297,-0.0073,Druze,modern
+HGDP00601,0.0364,-0.0176,Druze,modern
+HGDP00602,0.0267,-0.0097,Druze,modern
+HGDP00604,0.034,-0.0216,Druze,modern
+HGDP00606,0.0295,-0.0119,Druze,modern
+HGDP00607,0.0785,0.062,BedouinB,modern
+HGDP00608,0.0646,0.0395,BedouinB,modern
+HGDP00609,0.054,0.0182,BedouinA,modern
+HGDP00610,0.0796,0.0762,BedouinB,modern
+HGDP00611,0.0859,0.0723,BedouinA,modern
+HGDP00612,0.0832,0.0802,BedouinB,modern
+HGDP00613,0.0463,0.0027,BedouinA,modern
+HGDP00614,0.0586,0.0172,BedouinA,modern
+HGDP00615,0.0548,0.0151,BedouinA,modern
+HGDP00616,0.0769,0.0835,BedouinB,modern
+HGDP00618,0.0805,0.0748,BedouinB,modern
+HGDP00619,0.0501,0.0114,BedouinA,modern
+HGDP00620,0.0675,0.0277,BedouinA,modern
+HGDP00622,0.0562,0.0198,BedouinA,modern
+HGDP00623,0.0798,0.0694,BedouinB,modern
+HGDP00624,0.0766,0.0588,BedouinB,modern
+HGDP00625,0.0501,0.0199,BedouinA,modern
+HGDP00626,0.0548,0.0196,BedouinA,modern
+HGDP00628,0.0544,0.0193,BedouinA,modern
+HGDP00629,0.0513,0.0172,BedouinA,modern
+HGDP00630,0.0847,0.0901,BedouinB,modern
+HGDP00631,0.0838,0.0806,BedouinB,modern
+HGDP00632,0.0805,0.0505,BedouinA,modern
+HGDP00634,0.0737,0.0431,BedouinA,modern
+HGDP00635,0.0518,0.0129,BedouinA,modern
+HGDP00636,0.0725,0.0505,BedouinB,modern
+HGDP00637,0.0554,0.0128,BedouinA,modern
+HGDP00638,0.0648,0.0343,BedouinA,modern
+HGDP00639,0.0555,0.0287,BedouinA,modern
+HGDP00640,0.0744,0.0489,BedouinA,modern
+HGDP00641,0.074,0.0608,BedouinB,modern
+HGDP00642,0.0566,0.0153,BedouinA,modern
+HGDP00643,0.0744,0.0652,BedouinB,modern
+HGDP00644,0.0465,0.0081,BedouinA,modern
+HGDP00645,0.0515,0.0094,BedouinA,modern
+HGDP00646,0.0935,0.0809,BedouinA,modern
+HGDP00647,0.0501,0.0136,BedouinA,modern
+HGDP00648,0.0737,0.0646,BedouinB,modern
+HGDP00649,0.0795,0.0776,BedouinB,modern
+HGDP00650,0.0706,0.0609,BedouinB,modern
+HGDP00651,0.0734,0.0559,BedouinB,modern
+HGDP00653,0.0761,0.0559,BedouinB,modern
+HGDP00654,0.0393,-0.0011,BedouinA,modern
+HGDP00666,-0.0092,0.0393,Sardinian,modern
+HGDP00667,-0.014,0.0387,Sardinian,modern
+HGDP00668,-0.0111,0.0438,Sardinian,modern
+HGDP00669,-0.0104,0.0421,Sardinian,modern
+HGDP00670,-0.01,0.0438,Sardinian,modern
+HGDP00671,-0.0119,0.0421,Sardinian,modern
+HGDP00672,-0.0081,0.0394,Sardinian,modern
+HGDP00673,-0.0076,0.0388,Sardinian,modern
+HGDP00674,-0.0116,0.0432,Sardinian,modern
+HGDP00675,0.0475,0.0017,Palestinian,modern
+HGDP00676,0.0438,0.002,Palestinian,modern
+HGDP00677,0.046,0.0036,Palestinian,modern
+HGDP00679,0.0439,2E-04,Palestinian,modern
+HGDP00680,0.0538,0.0139,Palestinian,modern
+HGDP00683,0.0503,0.0044,Palestinian,modern
+HGDP00684,0.0455,0.0105,Palestinian,modern
+HGDP00685,0.0561,0.0144,Palestinian,modern
+HGDP00686,0.047,0.0093,Palestinian,modern
+HGDP00687,0.046,0.0031,Palestinian,modern
+HGDP00688,0.0388,7E-04,Palestinian,modern
+HGDP00689,0.0439,0.0044,Palestinian,modern
+HGDP00690,0.0451,0.0027,Palestinian,modern
+HGDP00691,0.047,0.0082,Palestinian,modern
+HGDP00694,0.0425,0.0012,Palestinian,modern
+HGDP00696,0.043,-0.0018,Palestinian,modern
+HGDP00697,0.0464,0.0104,Palestinian,modern
+HGDP00698,0.0447,0.0036,Palestinian,modern
+HGDP00699,0.0419,0.0032,Palestinian,modern
+HGDP00700,0.0469,0.0102,Palestinian,modern
+HGDP00701,0.0771,0.0717,BedouinB,modern
+HGDP00722,0.041,0.0014,Palestinian,modern
+HGDP00724,0.0468,0.0028,Palestinian,modern
+HGDP00725,0.0445,0.0015,Palestinian,modern
+HGDP00726,0.0495,0.0064,Palestinian,modern
+HGDP00727,0.0442,0.0037,Palestinian,modern
+HGDP00729,0.048,0.0065,Palestinian,modern
+HGDP00730,0.0443,0.0015,Palestinian,modern
+HGDP00731,0.0577,0.0141,Palestinian,modern
+HGDP00732,0.0483,0.0084,Palestinian,modern
+HGDP00733,0.0477,0.0059,Palestinian,modern
+HGDP00734,0.0449,0.0012,Palestinian,modern
+HGDP00735,0.045,0.0042,Palestinian,modern
+HGDP00736,0.0411,5E-04,Palestinian,modern
+HGDP00737,0.0507,0.0081,Palestinian,modern
+HGDP00739,0.0499,0.0079,Palestinian,modern
+HGDP00740,0.0433,0.0057,Palestinian,modern
+HGDP00741,0.0419,0.0055,Palestinian,modern
+HGDP00745,0.0415,-0.001,Palestinian,modern
+HGDP00794,-0.0397,0.0083,Orcadian,modern
+HGDP00796,-0.0397,0.0084,Orcadian,modern
+HGDP00797,-0.0402,0.0101,Orcadian,modern
+HGDP00798,-0.0387,0.0065,Orcadian,modern
+HGDP00799,-0.0429,0.0088,Orcadian,modern
+HGDP00800,-0.0407,0.009,Orcadian,modern
+HGDP00802,-0.0421,0.0096,Orcadian,modern
+HGDP00803,-0.0397,0.0069,Orcadian,modern
+HGDP00805,-0.0422,0.0079,Orcadian,modern
+HGDP00806,-0.0398,0.009,Orcadian,modern
+HGDP00807,-0.0415,0.0077,Orcadian,modern
+HGDP00808,-0.0412,0.0099,Orcadian,modern
+HGDP00810,-0.0389,0.0075,Orcadian,modern
+HGDP00879,-0.0438,-0.0125,Russian,modern
+HGDP00880,-0.0447,-0.0123,Russian,modern
+HGDP00882,-0.0445,-0.0126,Russian,modern
+HGDP00883,-0.0485,-0.0107,Russian,modern
+HGDP00884,-0.0442,-0.0069,Russian,modern
+HGDP00887,-0.0422,-0.0083,Russian,modern
+HGDP00888,-0.0421,-0.0079,Russian,modern
+HGDP00889,-0.0442,-0.0109,Russian,modern
+HGDP00890,-0.0469,-0.0113,Russian,modern
+HGDP00891,-0.0433,-0.0131,Russian,modern
+HGDP00892,-0.0475,-0.0102,Russian,modern
+HGDP00893,-0.0459,-0.0128,Russian,modern
+HGDP00894,-0.0425,-0.0116,Russian,modern
+HGDP00895,-0.0456,-0.0104,Russian,modern
+HGDP00896,-0.0429,-0.0136,Russian,modern
+HGDP00897,-0.0437,-0.0126,Russian,modern
+HGDP00898,-0.0454,-0.0167,Russian,modern
+HGDP00899,-0.0425,-0.013,Russian,modern
+HGDP00900,-0.0439,-0.0069,Russian,modern
+HGDP00901,-0.0439,-0.0101,Russian,modern
+HGDP00902,-0.0435,-0.0134,Russian,modern
+HGDP00903,-0.0456,-0.009,Russian,modern
+HGDP01062,-0.0095,0.0427,Sardinian,modern
+HGDP01063,-0.0097,0.0424,Sardinian,modern
+HGDP01064,-0.0094,0.0462,Sardinian,modern
+HGDP01065,-0.0129,0.0435,Sardinian,modern
+HGDP01066,-0.0107,0.049,Sardinian,modern
+HGDP01067,-0.0069,0.042,Sardinian,modern
+HGDP01068,-0.0071,0.0373,Sardinian,modern
+HGDP01069,-0.0117,0.0434,Sardinian,modern
+HGDP01070,-0.0093,0.0427,Sardinian,modern
+HGDP01071,-0.0085,0.0408,Sardinian,modern
+HGDP01072,-0.0069,0.0391,Sardinian,modern
+HGDP01073,-0.0098,0.0409,Sardinian,modern
+HGDP01074,-0.01,0.0415,Sardinian,modern
+HGDP01075,-0.0078,0.0441,Sardinian,modern
+HGDP01076,-0.0096,0.0405,Sardinian,modern
+HGDP01077,-0.0105,0.0369,Sardinian,modern
+HGDP01078,-0.0106,0.0387,Sardinian,modern
+HGDP01079,-0.0118,0.0427,Sardinian,modern
+HGDP01147,-0.0195,0.0119,Italian_North,modern
+HGDP01151,-0.0213,0.0154,Italian_North,modern
+HGDP01152,-0.0145,0.0127,Italian_North,modern
+HGDP01153,-0.0169,0.0141,Italian_North,modern
+HGDP01155,-0.0151,0.0125,Italian_North,modern
+HGDP01156,-0.0163,0.0165,Italian_North,modern
+HGDP01157,-0.0186,0.0097,Italian_North,modern
+HGDP01161,-0.0092,0.0109,Italian_North,modern
+HGDP01162,-0.0093,0.0064,Italian_North,modern
+HGDP01163,-0.0108,0.0054,Italian_North,modern
+HGDP01164,-0.0109,0.0123,Italian_North,modern
+HGDP01166,-0.0114,0.0101,Italian_North,modern
+HGDP01167,-0.0097,0.0082,Italian_North,modern
+HGDP01168,-0.0112,0.0073,Italian_North,modern
+HGDP01169,-0.0088,0.0081,Italian_North,modern
+HGDP01171,-0.016,0.0133,Italian_North,modern
+HGDP01172,-0.0145,0.009,Italian_North,modern
+HGDP01173,-0.0192,0.0133,Italian_North,modern
+HGDP01174,-0.0138,0.0148,Italian_North,modern
+HGDP01177,-0.0188,0.0151,Italian_North,modern
+HGDP01357,-0.0323,0.0389,Basque,modern
+HGDP01358,-0.0342,0.0411,Basque,modern
+HGDP01359,-0.0357,0.0389,Basque,modern
+HGDP01360,-0.0405,0.0445,Basque,modern
+HGDP01362,-0.0355,0.0397,Basque,modern
+HGDP01363,-0.0354,0.0389,Basque,modern
+HGDP01364,-0.03,0.0368,Basque,modern
+HGDP01365,-0.0333,0.0386,Basque,modern
+HGDP01366,-0.0353,0.0388,Basque,modern
+HGDP01367,-0.0372,0.0376,Basque,modern
+HGDP01368,-0.0327,0.0329,Basque,modern
+HGDP01370,-0.0348,0.0404,Basque,modern
+HGDP01371,-0.0367,0.0353,Basque,modern
+HGDP01373,-0.034,0.0411,Basque,modern
+HGDP01374,-0.035,0.0444,Basque,modern
+HGDP01375,-0.0334,0.0389,Basque,modern
+HGDP01377,-0.0346,0.0385,Basque,modern
+HGDP01378,-0.0349,0.0376,Basque,modern
+HGDP01379,-0.036,0.0413,Basque,modern
+HGDP01380,-0.0348,0.0425,Basque,modern
+HGDP01381,-8E-04,-0.0543,Adygei,modern
+HGDP01382,7E-04,-0.0489,Adygei,modern
+HGDP01383,0.002,-0.0475,Adygei,modern
+HGDP01385,6E-04,-0.0484,Adygei,modern
+HGDP01386,0.0026,-0.049,Adygei,modern
+HGDP01387,0.0018,-0.0497,Adygei,modern
+HGDP01396,-0.0086,-0.0391,Adygei,modern
+HGDP01397,-4E-04,-0.0496,Adygei,modern
+HGDP01398,0.0059,-0.0534,Adygei,modern
+HGDP01399,0.0034,-0.051,Adygei,modern
+HGDP01400,0.0037,-0.05,Adygei,modern
+HGDP01401,0.0033,-0.0506,Adygei,modern
+HGDP01402,-0.0024,-0.0485,Adygei,modern
+HGDP01403,0.0019,-0.0425,Adygei,modern
+HGDP01404,0.0056,-0.0536,Adygei,modern
+BulgarianD6,-0.0219,-2E-04,Bulgarian,modern
+BulgarianA4,-0.0224,0.0019,Bulgarian,modern
+hungary3,-0.0301,0.0041,Hungarian,modern
+LithuanianF1,-0.0558,0.0033,Lithuanian,modern
+iran19,0.0201,-0.0333,Iranian,modern
+iran14,0.016,-0.0355,Iranian,modern
+syria464,0.0449,-0.0041,Syrian,modern
+Lebanon5,0.052,0.0086,Lebanese,modern
+Jordan543,0.0406,0.0051,Jordanian,modern
+BulgarianE2,-0.0198,-3E-04,Bulgarian,modern
+BulgarianB4,-0.0162,-0.0034,Bulgarian,modern
+hungary6,-0.0306,0.005,Hungarian,modern
+lithuania3,-0.0491,0.0023,Lithuanian,modern
+iran2,0.018,-0.0424,Iranian,modern
+iran20,0.0218,-0.0372,Iranian,modern
+syria361,0.0211,-0.0221,Syrian,modern
+Lebanon6,0.0251,-0.0225,Lebanese,modern
+SaudiA5,0.0663,0.0343,Saudi,modern
+Jordan214,0.0367,-9E-04,Jordanian,modern
+BulgarianA1,-0.0164,-0.0016,Bulgarian,modern
+HungarianC5,-0.035,-5E-04,Hungarian,modern
+hungary7,-0.0349,-5E-04,Hungarian,modern
+lithuania10,-0.0552,-0.0014,Lithuanian,modern
+iran3,0.0242,-0.0347,Iranian,modern
+syria485,0.0303,-0.005,Syrian,modern
+Lebanon7,0.0314,-0.0031,Lebanese,modern
+SaudiA6,0.0519,0.0124,Saudi,modern
+Jordan445,0.0382,7E-04,Jordanian,modern
+BulgarianB1,-0.0188,0.0022,Bulgarian,modern
+HungarianE5,-0.0333,0.0026,Hungarian,modern
+HungarianH3,-0.0337,0.0046,Hungarian,modern
+lithuania9,-0.0527,0.0025,Lithuanian,modern
+syria520,0.0411,0.0059,Syrian,modern
+syria4,0.0332,-0.0043,Syrian,modern
+Lebanon8,0.0256,-0.0167,Lebanese,modern
+SaudiA7,0.0314,-0.006,Saudi,modern
+Jordan62,0.0497,0.0041,Jordanian,modern
+BulgarianC1,-0.0133,-0.0012,Bulgarian,modern
+hungary15,-0.0312,9E-04,Hungarian,modern
+LithuanianA1,-0.0529,0.0045,Lithuanian,modern
+LithuanianE2,-0.0499,0.0018,Lithuanian,modern
+iran11,0.0175,-0.0421,Iranian,modern
+syria461,0.0517,-0.0026,Syrian,modern
+Lebanon1,0.0308,-0.0089,Lebanese,modern
+saudi1434,0.0622,0.034,Saudi,modern
+Jordan603,0.0408,0.0013,Jordanian,modern
+BulgarianF1,-0.0199,-0.0028,Bulgarian,modern
+hungary20,-0.0347,0.0061,Hungarian,modern
+lithuania1,-0.0499,0.003,Lithuanian,modern
+lithuania8,-0.051,8E-04,Lithuanian,modern
+iran16,0.0197,-0.0411,Iranian,modern
+Lebanon2,0.032,-0.0059,Lebanese,modern
+saudi1424,0.0642,0.0329,Saudi,modern
+SaudiA9,0.045,-9E-04,Saudi,modern
+Jordan307,0.0391,0.0099,Jordanian,modern
+BulgarianH2,-0.0131,0.0014,Bulgarian,modern
+hungary2,-0.0335,1E-04,Hungarian,modern
+lithuania2,-0.0531,0.0023,Lithuanian,modern
+iran17,0.0219,-0.0375,Iranian,modern
+syria6,0.0461,-0.0051,Syrian,modern
+Lebanon3,0.0305,-0.0033,Lebanese,modern
+Jordan503,0.0356,-0.0102,Jordanian,modern
+BulgarianF2,-0.0204,-0.0012,Bulgarian,modern
+HungarianD1,-0.0257,1E-04,Hungarian,modern
+LithuanianD1,-0.0498,0.0042,Lithuanian,modern
+syria7,0.0462,-0.003,Syrian,modern
+Lebanon4,0.0475,0.0072,Lebanese,modern
+SaudiA1,0.0662,0.0309,Saudi,modern
+Jordan646,0.0419,7E-04,Jordanian,modern
+Jordan384,0.0435,0.0041,Jordanian,modern
+bal102,3E-04,-0.0492,Balkar,modern
+bal64,0.0014,-0.0509,Balkar,modern
+mg43,0.0115,-0.0545,Georgian,modern
+NorthOssetia19,0.0017,-0.055,Ossetian,modern
+ch126,-1E-04,-0.0526,Chechen,modern
+abh27,0.01,-0.0518,Abkhasian,modern
+armenia176,0.0205,-0.0287,Armenian,modern
+lez38,0.0032,-0.0445,Lezgin,modern
+bal124,0.0011,-0.0479,Balkar,modern
+bal97,0.0063,-0.0533,Balkar,modern
+mg47,0.0133,-0.0502,Georgian,modern
+NorthOssetia2,0.005,-0.0545,Ossetian,modern
+ch16,0.0018,-0.0473,Chechen,modern
+abh107,0.0121,-0.055,Abkhasian,modern
+abh41,0.0093,-0.0534,Abkhasian,modern
+armenia191,0.017,-0.0332,Armenian,modern
+lez40,-0.0018,-0.052,Lezgin,modern
+kumyks44,0.0046,-0.0451,Kumyk,modern
+bal136,0.0013,-0.0474,Balkar,modern
+mg22,0.0127,-0.0494,Georgian,modern
+mg49,0.0147,-0.0516,Georgian,modern
+NorthOssetia3,3E-04,-0.0509,Ossetian,modern
+ch174,-0.003,-0.0467,Chechen,modern
+abh119,0.0127,-0.0529,Abkhasian,modern
+armenia86,0.0171,-0.0296,Armenian,modern
+armenia279,0.0259,-0.0288,Armenian,modern
+bal22,0.0012,-0.0492,Balkar,modern
+mg23,0.0144,-0.0487,Georgian,modern
+mg62,0.016,-0.052,Georgian,modern
+NorthOssetia5,0.0035,-0.053,Ossetian,modern
+ch179,9E-04,-0.0479,Chechen,modern
+abh122,0.0106,-0.0473,Abkhasian,modern
+armenia91,0.0239,-0.0292,Armenian,modern
+armenia293,0.0204,-0.034,Armenian,modern
+lez49,-0.0015,-0.0453,Lezgin,modern
+kumyks93,0.0017,-0.049,Kumyk,modern
+bal41,0.0025,-0.051,Balkar,modern
+mg27,0.0166,-0.0515,Georgian,modern
+NorthOssetia11,5E-04,-0.0461,Ossetian,modern
+NorthOssetia8,0.0036,-0.0533,Ossetian,modern
+ch193,0.0031,-0.0526,Chechen,modern
+abh133,0.0117,-0.0586,Abkhasian,modern
+armenia102,0.0156,-0.0324,Armenian,modern
+lez31,-0.0015,-0.0455,Lezgin,modern
+lez7,0.0012,-0.0476,Lezgin,modern
+kumyks98,0.0017,-0.0453,Kumyk,modern
+bal42,0.001,-0.0506,Balkar,modern
+mg31,0.0126,-0.0471,Georgian,modern
+NorthOssetia12,0.0032,-0.0545,Ossetian,modern
+NorthOssetia9,3E-04,-0.0525,Ossetian,modern
+ch21,-0.0028,-0.0521,Chechen,modern
+abh147,0.0117,-0.0546,Abkhasian,modern
+armenia106,0.0173,-0.0351,Armenian,modern
+lez33,-0.002,-0.045,Lezgin,modern
+lez9,-0.0028,-0.0441,Lezgin,modern
+kumyks90,-0.0044,-0.0465,Kumyk,modern
+bal45,0.0015,-0.0529,Balkar,modern
+mg34,0.0127,-0.051,Georgian,modern
+NorthOssetia14,-6E-04,-0.0503,Ossetian,modern
+ch3,0.0019,-0.0463,Chechen,modern
+abh154,0.0157,-0.0518,Abkhasian,modern
+armenia139,0.0246,-0.0242,Armenian,modern
+lez36,0.0023,-0.0458,Lezgin,modern
+kumyks40,0.0073,-0.037,Kumyk,modern
+kumyks94,0.0045,-0.047,Kumyk,modern
+bal50,-5E-04,-0.0472,Balkar,modern
+mg40,0.0137,-0.0518,Georgian,modern
+NorthOssetia17,0.0078,-0.0511,Ossetian,modern
+ch113,6E-04,-0.0512,Chechen,modern
+ch31,-0.0017,-0.0454,Chechen,modern
+abh24,0.0179,-0.0483,Abkhasian,modern
+armenia162,0.0214,-0.0298,Armenian,modern
+lez37,2E-04,-0.05,Lezgin,modern
+kumyks41,-0.0011,-0.0442,Kumyk,modern
+kumyks97,-9E-04,-0.0383,Kumyk,modern
+bel43s,-0.0458,-0.0011,Belarusian,modern
+UkrBel618,-0.0443,-0.0046,Ukrainian,modern
+UkrLv240,-0.0336,2E-04,Ukrainian,modern
+Est393,-0.0517,4E-04,Estonian,modern
+Mordovians27,-0.042,-0.0148,Mordovian,modern
+bel30s,-0.0453,0.0024,Belarusian,modern
+UkrBel620,-0.0406,2E-04,Ukrainian,modern
+Est375,-0.0525,0,Estonian,modern
+Est380,-0.0529,-3E-04,Estonian,modern
+Mordovians28,-0.043,-0.0105,Mordovian,modern
+bel72c,-0.0416,-0.0027,Belarusian,modern
+UkrBel622,-0.04,-0.0055,Ukrainian,modern
+Est391,-0.054,4E-04,Estonian,modern
+Est377,-0.0539,4E-04,Estonian,modern
+Mordovians30,-0.0398,-0.018,Mordovian,modern
+bel93c,-0.046,-6E-04,Belarusian,modern
+UkrBel733,-0.0426,-4E-04,Ukrainian,modern
+Est372,-0.0531,-3E-04,Estonian,modern
+Mordovians4,-0.0404,-0.0098,Mordovian,modern
+Mordovians31,-0.0426,-0.0129,Mordovian,modern
+bel110c,-0.0432,-0.0016,Belarusian,modern
+UkrBel736,-0.0394,-0.0072,Ukrainian,modern
+Est358,-0.0523,0.0012,Estonian,modern
+Mordovians17,-0.0425,-0.0119,Mordovian,modern
+Mordovians1,-0.0402,-0.014,Mordovian,modern
+bel8s,-0.0392,-2E-04,Belarusian,modern
+belarusian23vp,-0.0424,-0.0054,Belarusian,modern
+Est400,-0.047,-0.0028,Estonian,modern
+Mordovians22,-0.0429,-0.0126,Mordovian,modern
+bel23s,-0.0483,-0.0011,Belarusian,modern
+belarusian47zp,-0.0454,-2E-04,Belarusian,modern
+UkrLv228,-0.0375,-0.0021,Ukrainian,modern
+Est397,-0.0487,0.002,Estonian,modern
+Mordovians32,-0.044,-0.0131,Mordovian,modern
+bel82s,-0.0442,6E-04,Belarusian,modern
+UkrBel614,-0.0419,-0.0073,Ukrainian,modern
+UkrLv237,-0.0387,3E-04,Ukrainian,modern
+Est394,-0.0488,8E-04,Estonian,modern
+Mordovians5,-0.0449,-0.0086,Mordovian,modern
+saudi1403,0.0645,0.0343,Saudi,modern
+NA15202,-0.0364,0.0073,Hungarian,modern
+NA15725,-0.0386,0.0062,Czech,modern
+NA15733,-0.0386,-7E-04,Czech,modern
+NA15762,-0.0439,0.0044,Icelandic,modern
+NA17373,-0.0093,0.0054,Greek,modern
+NA15203,-0.0356,0.0022,Hungarian,modern
+NA15726,-0.0363,0.0039,Czech,modern
+NA15755,-0.0474,0.0138,Icelandic,modern
+NA15763,-0.0442,0.0059,Icelandic,modern
+NA17374,0.0174,-0.0271,Greek,modern
+NA15204,-0.0303,-1E-04,Hungarian,modern
+NA15727,-0.0386,0.0064,Czech,modern
+NA15756,-0.0427,0.0102,Icelandic,modern
+NA15764,-0.0398,0.0072,Icelandic,modern
+NA17375,7E-04,-0.0052,Greek,modern
+NA15205,-0.0351,0.0056,Hungarian,modern
+NA15728,-0.0365,0.0051,Czech,modern
+NA15757,-0.0413,0.0057,Icelandic,modern
+NA15765,-0.0451,0.0097,Icelandic,modern
+NA17376,0.011,-0.0092,Greek,modern
+NA13626,0.0016,-0.0516,Adygei,modern
+NA15206,-0.0323,0.0051,Hungarian,modern
+NA15729,-0.0361,0.0049,Czech,modern
+NA15758,-0.0408,0.0043,Icelandic,modern
+NA15766,-0.0432,0.0061,Icelandic,modern
+NA17377,-0.0117,-0.0026,Greek,modern
+NA15199,-0.0346,0.0043,Hungarian,modern
+NA15207,-0.0317,-0.0021,Hungarian,modern
+NA15730,-0.0352,0.0051,Czech,modern
+NA15759,-0.0437,0.0069,Icelandic,modern
+NA13619,0.0013,-0.0595,Ignore_Adygei(relative_of_HGDP01382),modern
+NA15200,-0.0354,0.0053,Hungarian,modern
+NA15208,-0.0342,0.006,Hungarian,modern
+NA15731,-0.04,0.0036,Czech,modern
+NA15760,-0.0437,0.0054,Icelandic,modern
+NA15201,-0.0329,0.003,Hungarian,modern
+NA15724,-0.0401,0.0031,Czech,modern
+NA15732,-0.0407,0.0017,Czech,modern
+NA15761,-0.045,0.006,Icelandic,modern
+NA17372,-0.0022,-0.0015,Greek,modern
+HG00103,-0.041,0.0085,Scottish,modern
+HG00104,-0.0368,0.0037,Scottish,modern
+HG00105,-0.0411,0.011,Scottish,modern
+HG00106,-0.041,0.0054,Scottish,modern
+HG00128,-0.0374,0.0105,English,modern
+HG00129,-0.0396,0.0117,English,modern
+HG00130,-0.0352,0.0087,English,modern
+HG00131,-0.0353,0.009,English,modern
+HG00233,-0.0374,0.0151,English,modern
+HG00234,-0.0392,0.0097,English,modern
+HG00232,-0.036,0.0083,English,modern
+HG01500,-0.016,0.0258,Spanish,modern
+HG01501,-0.0163,0.0241,Spanish,modern
+HG01503,-0.0213,0.0233,Spanish,modern
+HG01504,-0.0163,0.0295,Spanish,modern
+HG01506,-0.0196,0.0241,Spanish,modern
+HG01507,-0.0213,0.0241,Spanish,modern
+HG01509,-0.0133,0.0269,Spanish,modern
+HG01510,-0.0204,0.0236,Spanish,modern
+HG01512,-0.0266,0.0259,Spanish,modern
+HG01513,-0.0258,0.0277,Spanish,modern
+HG01515,-0.0309,0.0312,Spanish_North,modern
+HG01516,-0.0334,0.0338,Spanish_North,modern
+HG01518,-0.0326,0.0318,Spanish_North,modern
+HG01524,-0.0179,0.0255,Spanish,modern
+HG01527,-0.0133,0.0243,Spanish,modern
+HG01528,-0.0179,0.028,Spanish,modern
+HG01530,-0.0199,0.0237,Spanish,modern
+HG01536,-0.0247,0.0229,Spanish,modern
+HG01537,-0.0228,0.0193,Spanish,modern
+HG01605,-0.0227,0.0236,Spanish,modern
+HG01606,-0.0244,0.0256,Spanish,modern
+HG01607,-0.0171,0.0207,Spanish,modern
+HG01608,-0.021,0.0239,Spanish,modern
+HG01613,-0.0221,0.0194,Spanish,modern
+HG01615,-0.0226,0.0187,Spanish,modern
+HG01617,-0.0182,0.0234,Spanish,modern
+HG01618,-0.0194,0.0208,Spanish,modern
+HG01619,-0.0166,0.0255,Spanish,modern
+HG01620,-0.0172,0.0229,Spanish,modern
+HG01623,-0.017,0.0282,Spanish,modern
+HG01624,-0.0165,0.0274,Spanish,modern
+HG01625,-0.0209,0.0198,Spanish,modern
+HG01626,-0.0097,0.0154,Spanish,modern
+HG00171,-0.0539,-0.0081,Finnish,modern
+HG00174,-0.0468,-6E-04,Finnish,modern
+HG00190,-0.0469,-9E-04,Finnish,modern
+HG00266,-0.0478,-0.0044,Finnish,modern
+HG00231,-0.0364,0.0037,English,modern
+HG00183,-0.0458,-0.0107,Finnish,modern
+HG00126,-0.0396,0.01,English,modern
+HG00173,-0.0513,-0.0059,Finnish,modern
+HG00182,-0.0495,-0.009,Finnish,modern
+HG01747,-0.0216,0.0226,Spanish,modern
+HG01746,-0.0234,0.026,Spanish,modern
+HG01675,-0.0236,0.029,Spanish,modern
+HG01680,-0.0239,0.0264,Spanish,modern
+HG01682,-0.0258,0.0255,Spanish,modern
+HG01700,-0.0329,0.0326,Spanish_North,modern
+HG01679,-0.0226,0.0262,Spanish,modern
+HG01702,-0.033,0.0367,Spanish_North,modern
+HG01676,-0.0275,0.0315,Spanish,modern
+HG01684,-0.0243,0.0259,Spanish,modern
+HG01705,-0.0182,0.0253,Spanish,modern
+HG01707,-0.02,0.023,Spanish,modern
+HG01685,-0.0161,0.0211,Spanish,modern
+HG01686,-0.0213,0.0277,Spanish,modern
+HG01704,-0.0125,0.0234,Spanish,modern
+HG01673,-0.0219,0.022,Spanish,modern
+HG01695,-0.0079,0.0289,Canary_Islander,modern
+HG01694,-0.0059,0.0253,Canary_Islander,modern
+HG01761,-0.0229,0.0267,Spanish,modern
+HG01770,-0.0201,0.0258,Spanish,modern
+HG01762,-0.0262,0.0254,Spanish,modern
+HG01773,-0.0236,0.0263,Spanish,modern
+HG02220,-0.0217,0.0172,Spanish,modern
+HG02238,-0.0199,0.0306,Spanish,modern
+HG01678,-0.0222,0.0282,Spanish,modern
+HG01699,-0.0162,0.0267,Spanish,modern
+HG01697,-0.0168,0.0221,Spanish,modern
+HG00160,-0.0394,0.0081,English,modern
+LibyanJew1438,0.0326,0.0157,Jew_Libyan,modern
+Malta4AM91,0.0054,0.0065,Maltese,modern
+Malta8AM91,0.0055,0.0099,Maltese,modern
+CRO53,-0.0302,0.0046,Croatian,modern
+AshkenaziJew5779,0.0088,0.0026,Jew_Ashkenazi,modern
+SephardiJewTurkey4955,0.0151,0.0027,Jew_Turkish,modern
+NOR119,-0.0417,0.0066,Norwegian,modern
+NOR124,-0.0418,0.0068,Norwegian,modern
+CRO103,-0.0282,0.0017,Croatian,modern
+CRO107,-0.0295,-0.0011,Croatian,modern
+TunisianJew1421,0.0284,0.0094,Jew_Tunisian,modern
+SephardiJewTurkey5877,0.0135,-4E-04,Jew_Turkish,modern
+TP08,8E-04,0.0047,Sicilian,modern
+GREEKGRALPOP18,-0.0108,0.003,Greek,modern
+AshkenaziJew5782,0.0055,0.0021,Jew_Ashkenazi,modern
+BEL 57.00,0.0037,0.0025,Italian_South,modern
+BAS35,-0.0369,0.038,Basque,modern
+SR23,0.0013,9E-04,Sicilian,modern
+CRO47,-0.0335,0.0063,Croatian,modern
+NOR106,-0.0386,0.0058,Norwegian,modern
+CRO41,-0.0302,0.0011,Croatian,modern
+Malta7AM91,0.0098,0.0113,Maltese,modern
+SephardiJewTurkey4953,0.0197,0.0094,Jew_Turkish,modern
+SephardiJewTurkey6077,0.0178,0.0074,Jew_Turkish,modern
+NOR101,-0.0408,0.01,Norwegian,modern
+SephardiJewTurkey5832,0.0188,9E-04,Jew_Turkish,modern
+YemeniteJew4684,0.0554,0.0117,Jew_Yemenite,modern
+TP05,0.0061,0.0077,Sicilian,modern
+Kayseri24392,0.0111,-0.0233,Turkish,modern
+YemeniteJew4695,0.0585,0.0169,Jew_Yemenite,modern
+SR60,0.0063,0.0053,Sicilian,modern
+NOR146,-0.0418,0.0069,Norwegian,modern
+TP06,-1E-04,0.0067,Sicilian,modern
+NOR108,-0.0441,0.0093,Norwegian,modern
+CRO66,-0.0249,-8E-04,Croatian,modern
+IranianJew1409,0.0278,-0.0278,Jew_Iranian,modern
+NOR126,-0.043,0.0089,Norwegian,modern
+SephardiJewTurkey5075,0.0119,0.0028,Jew_Turkish,modern
+GREEKGRALPOP13,-0.0081,0.0034,Greek,modern
+TP07,0.0074,0.0064,Sicilian,modern
+BAS31,-0.0359,0.0399,Basque,modern
+ALB191,-0.0143,-0.0038,Albanian,modern
+GREEKGRALPOP15,-0.0123,-0.0024,Greek,modern
+SephardiJewTurkey4950,0.0114,4E-04,Jew_Turkish,modern
+NOR107,-0.0446,0.0062,Norwegian,modern
+SephardiJewTurkey5033,0.0159,0.0062,Jew_Turkish,modern
+GREEKGRALPOP5,-0.0094,-7E-04,Greek,modern
+YemeniteJew4675,0.0541,0.0095,Jew_Yemenite,modern
+CRO153,-0.0273,0.001,Croatian,modern
+NOR109,-0.0451,0.0089,Norwegian,modern
+SouthFrench3326,-0.0342,0.0293,French,modern
+GREEKGRALPOP9,-0.0117,7E-04,Greek,modern
+TP04,-9E-04,0.0076,Sicilian,modern
+CRO31,-0.0291,0.004,Croatian,modern
+TP25,0.0022,0.0063,Sicilian,modern
+GREEKGRALPOP4,-0.0063,3E-04,Greek,modern
+LibyanJew1601,0.0282,0.0103,Jew_Libyan,modern
+CRO93,-0.0289,0.0038,Croatian,modern
+Malta17AM91,0.0077,0.0116,Maltese,modern
+SouthFrench3947,-0.03,0.0296,French,modern
+SouthFrench1323,-0.0324,0.0304,French,modern
+SR48R,0.0023,0.0038,Sicilian,modern
+Balikesir16675,0.0052,-0.0298,Turkish_Balikesir,modern
+YemeniteJew4938,0.0552,0.0119,Jew_Yemenite,modern
+SR44,0.0031,0.0065,Sicilian,modern
+SR64,0.0034,0.004,Sicilian,modern
+NOR148,-0.0457,0.005,Norwegian,modern
+IraqiJew4061,0.0301,-0.0182,Jew_Iraqi,modern
+CYP 19.00,0.018,-0.0053,Cypriot,modern
+CRO48,-0.0294,0.0019,Croatian,modern
+GREEKGRALPOP17,-0.0119,4E-04,Greek,modern
+ALB213,-0.01,-5E-04,Albanian,modern
+Turkish7BA57,0.0027,-0.0233,Turkish,modern
+BAS22,-0.0357,0.0404,Basque,modern
+GREEKGRALPOP16,-0.0075,0.0012,Greek,modern
+LibyanJew1104,0.027,0.0082,Jew_Libyan,modern
+Balikesir16790,0.0056,-0.036,Turkish_Balikesir,modern
+NOR111,-0.0425,0.0091,Norwegian,modern
+SouthFrench3951,-0.0286,0.036,French,modern
+BAS25,-0.0355,0.0381,Basque,modern
+BAS32,-0.0327,0.0396,Basque,modern
+GREEKGRALPOP11,-0.0106,-0.0014,Greek,modern
+GREEKGRALPOP10,-0.0084,-0.0031,Greek,modern
+Malta2AM91,0.0117,-4E-04,Maltese,modern
+GREEKGRALPOP3,-0.0117,0.0031,Greek,modern
+Malta16AM91,0.012,0.011,Maltese,modern
+GREEKGRALPOP8,-0.013,-4E-04,Greek,modern
+IranianJew1132,0.0291,-0.0233,Jew_Iranian,modern
+MoroccanJew5126,0.0193,0.0116,Jew_Moroccan,modern
+Turkish8BA62,-0.004,-0.018,Turkish,modern
+LibyanJew1462,0.0261,0.0109,Jew_Libyan,modern
+CYP 5.00,0.0197,-0.0088,Cypriot,modern
+SouthFrench3068,-0.0318,0.0304,French,modern
+Cyprus13AJ19,0.0108,-0.0061,Cypriot,modern
+TunisianJew1763,0.0306,0.0153,Jew_Tunisian,modern
+Malta15AM91,0.006,0.0065,Maltese,modern
+MoroccanJew4634,0.0201,0.0059,Jew_Moroccan,modern
+LibyanJew1263,0.0297,0.0152,Jew_Libyan,modern
+Istanbul20010,0.014,-0.0317,Turkish,modern
+BAS30,-0.0354,0.046,Basque,modern
+Cyprus24AJ19,0.0192,-0.0058,Cypriot,modern
+YemeniteJew4667,0.0607,0.0214,Jew_Yemenite,modern
+TunisianJew1507,0.0336,0.0149,Jew_Tunisian,modern
+IraqiJew4241,0.0311,-0.0212,Jew_Iraqi,modern
+TunisianJew1544,0.0242,0.0086,Jew_Tunisian,modern
+AshkenaziJew5783,0.0026,0.001,Jew_Ashkenazi,modern
+Turkish4BA57,0.0052,-0.0246,Turkish,modern
+AshkenaziJew5704,0.007,-1E-04,Jew_Ashkenazi,modern
+MoroccanJew4789,0.0196,0.0066,Jew_Moroccan,modern
+IranianJew1159,0.0304,-0.0247,Jew_Iranian,modern
+MoroccanJew5168,0.0204,0.0077,Jew_Moroccan,modern
+IranianJew1513,0.0294,-0.0256,Jew_Iranian,modern
+AshkenaziJew5728,0.0032,0.001,Jew_Ashkenazi,modern
+ALB202,-0.0112,-0.004,Albanian,modern
+YemeniteJew4960,0.0546,0.0178,Jew_Yemenite,modern
+GREEKGRALPOP12,-0.007,-0.0048,Greek,modern
+SouthFrench1112,-0.0289,0.0301,French,modern
+AshkenaziJew5790,0.0045,0.01,Jew_Ashkenazi,modern
+CYP 2.00,0.0182,-0.0059,Cypriot,modern
+GeorgianJew1607,0.0226,-0.03,Jew_Georgian,modern
+GeorgianJew1671,0.0235,-0.0282,Jew_Georgian,modern
+Cyprus2AJ19,0.0315,-0.0059,Cypriot,modern
+Adana23114,0.0151,-0.0285,Turkish,modern
+GREEKGRALPOP14,-0.0075,0.0029,Greek,modern
+IranianJew1556,0.0282,-0.0214,Jew_Iranian,modern
+TunisianJew1170,0.0271,0.0123,Jew_Tunisian,modern
+TunisianJew1531,0.0273,0.0139,Jew_Tunisian,modern
+SouthFrench4018,-0.0317,0.0327,French,modern
+Trabzon21177,0.0204,-0.0349,Turkish,modern
+GeorgianJew1577,0.0214,-0.0281,Jew_Georgian,modern
+BAS28,-0.0361,0.0392,Basque,modern
+Aydin18784,0.0075,-0.0254,Turkish,modern
+IraqiJew1417,0.0309,-0.0205,Jew_Iraqi,modern
+Istanbul19810,0.007,-0.0323,Turkish,modern
+Trabzon21557,0.0203,-0.0326,Turkish,modern
+LibyanJew1611,0.0261,0.0137,Jew_Libyan,modern
+IranianJew1557,0.0218,-0.0293,Jew_Iranian,modern
+GeorgianJew1971,0.0214,-0.0266,Jew_Georgian,modern
+GeorgianJew1594,0.0236,-0.0298,Jew_Georgian,modern
+MoroccanJew4692,0.022,0.01,Jew_Moroccan,modern
+ALB212,-0.0103,0.005,Albanian,modern
+IraqiJew1771,0.0287,-0.0179,Jew_Iraqi,modern
+YemeniteJew5433,0.0569,0.0164,Jew_Yemenite,modern
+ALB220,-0.0062,0.0021,Albanian,modern
+Cyprus22AJ19,0.0176,-2E-04,Cypriot,modern
+YemeniteJew4937,0.0577,0.0104,Jew_Yemenite,modern
+Malta12AM91,0.0089,0.0115,Maltese,modern
+Trabzon21534,0.0179,-0.0297,Turkish,modern
+LibyanJew1605,0.0281,0.0129,Jew_Libyan,modern
+BAS27,-0.0347,0.0386,Basque,modern
+Cyprus21AJ19,0.0246,-0.0088,Cypriot,modern
+TunisianJew1511,0.0268,0.0116,Jew_Tunisian,modern
+Turkish9BA57,0.0103,-0.0321,Turkish,modern
+Kayseri24075,0.0139,-0.0288,Turkish,modern
+IraqiJew4291,0.0315,-0.0175,Jew_Iraqi,modern
+ALB230,-0.0129,0.003,Albanian,modern
+Adana23108,0.0285,-0.0096,Turkish,modern
+IranianJew1143,0.0317,-0.0235,Jew_Iranian,modern
+MoroccanJew4683,0.0195,0.0078,Jew_Moroccan,modern
+Balikesir16887,0.0045,-0.0308,Turkish_Balikesir,modern
+IranianJew1832,0.0273,-0.0243,Jew_Iranian,modern
+GeorgianJew1654,0.0258,-0.0272,Jew_Georgian,modern
+BAS33,-0.033,0.0384,Basque,modern
+GeorgianJew1883,0.0232,-0.0296,Jew_Georgian,modern
+LibyanJew1639,0.0307,0.0104,Jew_Libyan,modern
+LibyanJew1659,0.03,0.0167,Jew_Libyan,modern
+Kayseri24266,0.011,-0.0301,Turkish,modern
+Balikesir16653,0.0069,-0.0384,Turkish_Balikesir,modern
+Istanbul25095,-0.0152,-0.0127,Turkish,modern
+Aydin18112,0.0096,-0.0288,Turkish,modern
+Kayseri24402,0.0097,-0.0251,Turkish,modern
+Istanbul25081,0.0036,-0.0241,Turkish,modern
+Aydin18596,0.0052,-0.0362,Turkish,modern
+Istanbul17778,0.0114,-0.0391,Turkish,modern
+IraqiJew1430,0.0311,-0.0209,Jew_Iraqi,modern
+Istanbul15781,-0.0051,-0.0097,Turkish,modern
+Adana23136,0.0264,-0.0097,Turkish,modern
+AshkenaziJew5788,0.0055,0.0023,Jew_Ashkenazi,modern
+Adana23113,0.0159,-0.0409,Turkish,modern
+Trabzon21575,0.0167,-0.0349,Turkish,modern
+Aydin18636,0.0088,-0.0294,Turkish,modern
+Istanbul20040,0.0178,-0.0361,Turkish,modern
+Balikesir16837,-9E-04,-0.0356,Ignore_Turkish_Balikesir(PCA_outlier_vs_rest),modern
+Adana23144,0.0143,-0.0358,Turkish,modern
+Kayseri23967,0.0122,-0.0331,Turkish,modern
+IranianJew1845,0.0305,-0.0242,Jew_Iranian,modern
+Trabzon21174,0.015,-0.0344,Turkish,modern
+Aydin18873,0.0037,-0.0241,Turkish,modern
+Kayseri23892,0.0147,-0.0275,Turkish,modern
+Istanbul19185,0.0072,-0.0303,Turkish,modern
+Istanbul25098,-0.0163,-0.0022,Turkish,modern
+Adana23133,0.0167,-0.025,Turkish,modern
+Trabzon21515,0.0152,-0.0284,Turkish,modern
+Kayseri24032,0.0142,-0.0281,Turkish,modern
+Kayseri23549,0.0153,-0.0319,Turkish,modern
+Trabzon21544,0.0179,-0.0352,Turkish,modern
+Adana23150,0.0044,-0.0228,Turkish,modern
+Kayseri23271,0.0146,-0.0277,Turkish,modern
+Trabzon21645,0.014,-0.0353,Turkish,modern
+Adana23147,0.0193,-0.0146,Turkish,modern
+Aydin18483,0.0089,-0.0413,Turkish,modern
+Balikesir17006,0.0045,-0.0343,Turkish_Balikesir,modern
+Aydin18419,0.0044,-0.0297,Turkish,modern
+Kayseri24276,0.0172,-0.029,Turkish,modern
+Istanbul19708,0.011,-0.0383,Turkish,modern
+Trabzon21173,0.019,-0.0377,Turkish,modern
+Adana23112,0.0126,-0.0296,Turkish,modern
+Adana23117,0.0126,-0.0268,Turkish,modern
+ANI152,-0.0476,0.0442,Neolithic,balkan
+ANI153,-0.0526,0.0449,Neolithic,balkan
+ANI159-ANI181,-0.0112,0.0314,Neolithic,balkan
+ANI160,-0.037,0.0378,Neolithic,balkan
+atp005.SG,-0.0259,0.0576,Neolithic,mediterranean
+CB13.SG,-0.0105,0.0548,Neolithic,mediterranean
+CHA001_merged,-0.0157,0.0532,Neolithic,mediterranean
+CHA002_merged,-0.0279,0.0516,Neolithic,mediterranean
+CHA003_merged,-0.0162,0.0572,Neolithic,mediterranean
+CHA004.A0102,-0.0419,0.0508,Neolithic,mediterranean
+DER002,0,0.0392,Neolithic,North Central
+DER003,-0.005,0.0421,Neolithic,North Central
+DER004,-0.0147,0.0391,Neolithic,North Central
+DER005,-8E-04,0.0399,Neolithic,North Central
+DER006,-8E-04,0.0384,Neolithic,North Central
+DER007,0.0024,0.0392,Neolithic,North Central
+DER009,-0.0016,0.0385,Neolithic,North Central
+DER010,-0.0012,0.0383,Neolithic,North Central
+DER011,-0.0031,0.0393,Neolithic,North Central
+DER012,-0.0015,0.036,Neolithic,North Central
+DER013,0.0024,0.0404,Neolithic,North Central
+DER014,-0.0064,0.0418,Neolithic,North Central
+DER015,-0.0025,0.0434,Neolithic,North Central
+DER017,-0.0174,0.0446,Neolithic,North Central
+DER018,-0.0013,0.0375,Neolithic,North Central
+DER019,-0.0151,0.0435,Neolithic,North Central
+DER020,-0.0242,0.0438,Neolithic,North Central
+DER021,-0.0015,0.0405,Neolithic,North Central
+DER022,0.0016,0.0375,Neolithic,North Central
+DER023,0.0017,0.0365,Neolithic,North Central
+DER024,0.004,0.042,Neolithic,North Central
+DER026,-0.0048,0.0402,Neolithic,North Central
+DER028,-0.0017,0.0384,Neolithic,North Central
+DER030,-0.0095,0.0399,Neolithic,North Central
+DER031,-0.0119,0.035,Neolithic,North Central
+DER032,-4E-04,0.0347,Neolithic,North Central
+DER033,8E-04,0.0401,Neolithic,North Central
+DER034,-0.0012,0.0372,Neolithic,North Central
+DER035,-0.009,0.0393,Neolithic,North Central
+DER036,0.002,0.0342,Neolithic,North Central
+DER037,-0.0174,0.0409,Neolithic,North Central
+FUC003_merged,-0.0133,0.052,Neolithic,mediterranean
+HBS002,-0.0327,0.0464,Neolithic,North Central
+HBS004,-0.0205,0.0426,Neolithic,North Central
+HBS005,-0.0284,0.0459,Neolithic,North Central
+HBS006,-0.0073,0.0367,Neolithic,North Central
+HBS007,-0.0169,0.0471,Neolithic,North Central
+HBS008,-0.0179,0.0404,Neolithic,North Central
+HBS009,-0.0084,0.0429,Neolithic,North Central
+I0018,4E-04,0.0361,Neolithic,South Central
+I0022,-0.0016,0.0396,Neolithic,South Central
+I0025,-8E-04,0.0379,Neolithic,South Central
+I0026,0.0041,0.0379,Neolithic,South Central
+I0046_published,-0.0012,0.0385,Neolithic,North Central
+I0048_published,-0.0012,0.0339,Neolithic,North Central
+I0054,-0.0028,0.0354,Neolithic,North Central
+I0056,-0.0071,0.0485,Neolithic,North Central
+I0057_published,-0.0118,0.04,Neolithic,North Central
+I0100,-0.0017,0.0409,Neolithic,North Central
+I0174,-0.0081,0.0464,Neolithic,South Central
+I0176,-0.0292,0.0461,Neolithic,South Central
+I0409,-0.0132,0.0568,Neolithic,mediterranean
+I0410,-0.0116,0.0587,Neolithic,mediterranean
+I0411,-0.0377,0.0525,Neolithic,mediterranean
+I0412,-0.004,0.0514,Neolithic,mediterranean
+I0413,-0.0122,0.055,Neolithic,mediterranean
+I0659_published,-0.002,0.0391,Neolithic,North Central
+I0698_published,0.003,0.0386,Neolithic,balkan
+I0700,-0.0376,0.0378,Neolithic,balkan
+I0704_published,-0.0234,0.0403,Neolithic,balkan
+I0706,-0.0206,0.0364,Neolithic,balkan
+I0781,-0.0023,0.0325,Neolithic,balkan
+I0785,-0.0285,0.0448,Neolithic,balkan
+I0795,-0.0213,0.0472,Neolithic,North Central
+I0797,-0.0227,0.0433,Neolithic,North Central
+I0821_published,-0.0063,0.0414,Neolithic,North Central
+I1108,-0.0373,0.0375,Neolithic,balkan
+I1109,-0.0141,0.0409,Neolithic,balkan
+I1113,-0.0339,0.0365,Neolithic,balkan
+I1295,-0.03,0.0386,Neolithic,balkan
+I1296_published,-0.0455,0.0444,Neolithic,balkan
+I1297,-0.0377,0.0447,Neolithic,balkan
+I1298_published,-0.0236,0.0403,Neolithic,balkan
+I1496,4E-04,0.0417,Neolithic,South Central
+I1508,0.0077,0.0387,Neolithic,South Central
+I1550_published,-0.0011,0.036,Neolithic,North Central
+I1876,-0.011,0.0439,Neolithic,South Central
+I1878_published,-0.0034,0.0397,Neolithic,South Central
+I1880,0.0036,0.0393,Neolithic,South Central
+I1882,-0.0158,0.0411,Neolithic,South Central
+I1883,-0.0343,0.0495,Neolithic,South Central
+I1904,0.0038,0.0354,Neolithic,South Central
+I1972,-0.0132,0.0522,Neolithic,mediterranean
+I2005_published,-0.0502,0.0518,Neolithic,North Central
+I2008_published,-0.0348,0.0517,Neolithic,North Central
+I2014,-0.0464,0.0502,Neolithic,North Central
+I2016_published,-0.0425,0.0477,Neolithic,North Central
+I2017_published,-0.0425,0.0509,Neolithic,North Central
+I2020,-0.0308,0.0461,Neolithic,North Central
+I2021_published,-0.0493,0.0508,Neolithic,North Central
+I2022,-0.0448,0.0527,Neolithic,North Central
+I2026_published,-0.0312,0.0438,Neolithic,North Central
+I2029_published,-0.0182,0.0439,Neolithic,North Central
+I2030_published,-0.0077,0.0377,Neolithic,North Central
+I2032_published,-0.0199,0.0437,Neolithic,North Central
+I2036_published,-0.0067,0.0382,Neolithic,North Central
+I2037_published,-0.0234,0.0494,Neolithic,North Central
+I2038_published,-0.0122,0.0469,Neolithic,North Central
+I2181_published,-0.0495,0.0329,Neolithic,balkan
+I2199,-0.0138,0.0563,Neolithic,mediterranean
+I2215_published,-0.0392,0.0341,Neolithic,balkan
+I2216_published,-0.0323,0.0464,Neolithic,balkan
+I2355,-0.0125,0.0419,Neolithic,South Central
+I2357,-0.0171,0.0442,Neolithic,South Central
+I2373,-0.0186,0.0413,Neolithic,South Central
+I2374,-0.0407,0.0503,Neolithic,South Central
+I2423,-0.004,0.0353,Neolithic,balkan
+I2424,-0.0052,0.0302,Neolithic,balkan
+I2425,-0.0193,0.033,Neolithic,balkan
+I2426_published,-0.0458,0.0487,Neolithic,balkan
+I2427,-0.0014,0.0303,Neolithic,balkan
+I2430,-0.0067,0.0305,Neolithic,balkan
+I2431,-0.007,0.0322,Neolithic,balkan
+I2509,-1E-04,0.0355,Neolithic,balkan
+I2519,0.0038,0.0282,Neolithic,balkan
+I2521,0.0047,0.036,Neolithic,balkan
+I2526,-0.0017,0.0384,Neolithic,balkan
+I2529_published,0.0026,0.0283,Neolithic,balkan
+I2532,0.0057,0.0363,Neolithic,balkan
+I2533,0.0036,0.0406,Neolithic,balkan
+I2739_published,0.0033,0.0384,Neolithic,South Central
+I2794,0.0073,0.0416,Neolithic,South Central
+I2937_all,0.005,0.0341,Neolithic,balkan
+I3498,0.007,0.0353,Neolithic,balkan
+I3536,-0.0409,0.0503,Neolithic,South Central
+I3708,0.0097,0.031,Neolithic,balkan
+I3879,-0.0123,0.0446,Neolithic,balkan
+I4062,-0.0029,0.0377,Neolithic,mediterranean
+I4063,-0.0072,0.0429,Neolithic,mediterranean
+I4064,-0.0034,0.0431,Neolithic,mediterranean
+I4065,-0.0118,0.04,Neolithic,mediterranean
+I4088,-0.0072,0.036,Neolithic,balkan
+I4167,-0.0348,0.0475,Neolithic,balkan
+I4168,-0.0136,0.0433,Neolithic,balkan
+I4181,-0.0515,0.0526,Neolithic,South Central
+I4196,0.0032,0.0365,Neolithic,South Central
+I4972,-0.055,0.0475,Neolithic,South Central
+I5068,-0.0052,0.0419,Neolithic,South Central
+I5069,0.0023,0.0384,Neolithic,South Central
+I5070,2E-04,0.0375,Neolithic,South Central
+I5071,-0.001,0.0384,Neolithic,balkan
+I5072,0.0022,0.0453,Neolithic,balkan
+I5077,0.0045,0.0404,Neolithic,balkan
+I5078,0.0022,0.0411,Neolithic,balkan
+I5204,-0.0017,0.0401,Neolithic,South Central
+I5205,6E-04,0.0364,Neolithic,South Central
+I5206,1E-04,0.038,Neolithic,South Central
+I5207,2E-04,0.0408,Neolithic,South Central
+I5208,0.0034,0.0397,Neolithic,South Central
+I5427,0.0096,0.0367,Neolithic,balkan
+I6912_all_published,-0.0454,0.0422,Neolithic,South Central
+I6913_published,-0.0584,0.0494,Neolithic,South Central
+I7550,-0.0248,0.0548,Neolithic,mediterranean
+I8134,-0.0197,0.0586,Neolithic,mediterranean
+I10942,-0.0199,0.0521,Neolithic,mediterranean
+Klei10.SG,0.0081,0.0295,Neolithic,balkan
+LON003,-0.0184,0.0584,Neolithic,mediterranean
+MA79,-0.0143,0.0566,Neolithic,mediterranean
+mur.SG,-0.0127,0.0532,Neolithic,mediterranean
+NE1.SG,-0.0035,0.0375,Neolithic,South Central
+NE6.SG,0,0.0417,Neolithic,South Central
+NOE001,-0.0471,0.0538,Neolithic,mediterranean
+NOE002,-0.0405,0.053,Neolithic,mediterranean
+Pal7.SG,0.0039,0.0336,Neolithic,balkan
+R2.SG,0.0026,0.0388,Neolithic,mediterranean
+R3.SG,0.0023,0.0382,Neolithic,mediterranean
+R6.SG,-0.0214,0.0539,Neolithic,mediterranean
+R8.SG,0.001,0.0348,Neolithic,mediterranean
+R9.SG,0.0068,0.0363,Neolithic,mediterranean
+R10.SG,0.0026,0.0338,Neolithic,mediterranean
+R16.SG,-0.0066,0.0386,Neolithic,mediterranean
+R17.SG,-0.0078,0.0399,Neolithic,mediterranean
+R18.SG,-6E-04,0.0356,Neolithic,mediterranean
+R19.SG,-0.0034,0.0345,Neolithic,mediterranean
+R1014.SG,-0.0132,0.0461,Neolithic,mediterranean
+SCH001,-0.0327,0.0445,Neolithic,South Central
+SCH004,-0.0482,0.0464,Neolithic,South Central
+SCH007,-0.0236,0.0402,Neolithic,South Central
+SCH009,-0.0071,0.0394,Neolithic,South Central
+SCH010,-0.0046,0.0429,Neolithic,South Central
+SCH011,-0.042,0.0491,Neolithic,South Central
+SCH014,-0.004,0.035,Neolithic,South Central
+SCH015,-0.0404,0.0467,Neolithic,South Central
+SCH016,-0.0049,0.0376,Neolithic,South Central
+SCH018,-0.0402,0.0492,Neolithic,South Central
+SID005,-0.029,0.0552,Neolithic,mediterranean
+SMH004,-0.005,0.0393,Neolithic,South Central
+TOR.6.SG,-0.0239,0.0551,Neolithic,mediterranean
+TOR.7.SG,-0.0388,0.0517,Neolithic,mediterranean
+TOR.8.SG,-0.0278,0.0514,Neolithic,mediterranean
+TOR.11.SG,-0.0406,0.0509,Neolithic,mediterranean
+XN164,-0.0039,0.0389,Neolithic,South Central
+XN165,9E-04,0.0345,Neolithic,South Central
+XN166,-0.0026,0.041,Neolithic,South Central
+XN167,7E-04,0.0367,Neolithic,South Central
+XN168,-0.0109,0.0386,Neolithic,South Central
+XN169,-0.0012,0.0394,Neolithic,South Central
+XN170,-0.0074,0.0418,Neolithic,South Central
+XN171,-0.0021,0.0378,Neolithic,South Central
+XN172,-0.0052,0.0386,Neolithic,South Central
+XN173,-0.0175,0.0413,Neolithic,South Central
+XN174,-0.01,0.0377,Neolithic,South Central
+XN175,-7E-04,0.0375,Neolithic,South Central
+XN178,-0.0355,0.0446,Neolithic,South Central
+XN180,-0.0168,0.0391,Neolithic,South Central
+XN182,-0.0213,0.041,Neolithic,South Central
+XN183,-0.0275,0.0446,Neolithic,South Central
+XN188,-0.0101,0.0412,Neolithic,South Central
+XN191,-0.0476,0.0436,Neolithic,South Central
+XN205,-0.0312,0.0439,Neolithic,South Central
+XN206,-0.0463,0.044,Neolithic,South Central
+XN207,-0.0164,0.0478,Neolithic,South Central
+XN211,-0.0336,0.0394,Neolithic,South Central
+XN215,-0.0425,0.0443,Neolithic,South Central
+XN224,-0.043,0.048,Neolithic,South Central
+XN225,-0.0185,0.0397,Neolithic,South Central
