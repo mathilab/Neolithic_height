@@ -17,50 +17,267 @@ library(ggbeeswarm)
 library(RColorBrewer)
 library(data.table)
 library(forcats)
+library(BayesFactor)
 
-#source("lbkFunctions.R")
+source("lbkFunctions.R")
 ## read in the data
 compiled <- read.csv("../SupplementaryTable1.csv")
 
 ## making sure all the data classes are correct after importing them
-compiled$prs_scaled <- as.numeric(compiled$prs_scaled)
-compiled$imputed_prs_scaled <- as.numeric(compiled$imputed_prs_scaled)
-compiled$sibling_prs_imputed <- as.numeric(compiled$sibling_prs_imputed)
+compiled$nealeClump_prs <- as.numeric(compiled$nealeClump_prs)
+compiled$siblingClump_prs <- as.numeric(compiled$siblingClump_prs)
+compiled$nealeLDpred_prs <- as.numeric(compiled$nealeLDpred_prs)
+compiled$siblingLDpred_prs <- as.numeric(compiled$siblingLDpred_prs)
 compiled$method <- as.factor(compiled$method)
 compiled$Sex <- as.factor(compiled$Sex)
-compiled$Sex <- factor(compiled$Sex, levels=c("F", "M", "J", "U"))
 compiled$Country <- as.factor((compiled$Country))
 compiled$Region <- as.factor(compiled$Region)
 compiled$Region <- factor(compiled$Region, levels=c("North Central", "South Central", "balkan", "mediterranean", "HG", "anatoliaEF"))
+compiled$Region2 <- ifelse(compiled$Region == "North Central" | compiled$Region == "South Central", "Central", as.character(compiled$Region))
+compiled$Region2 <- factor(compiled$Region2, levels=c("Central", "balkan", "mediterranean", "anatoliaEF", "HG"))
 compiled$CO <- as.factor(compiled$CO)
 compiled$LEH <- as.factor(compiled$LEH)
+compiled$PH <- as.factor(compiled$PH)
 compiled$whgProp <- as.numeric(compiled$whgProp)
 
 ## create a dataset without the Mesolithic Hunter-Gatherers and Anatolian Farmers
 neoOnly <- compiled[compiled$Region != "HG" & compiled$Region != "anatoliaEF",]
 
-## read in data for supplementary figures
-suppData <- read.csv("supplementaryData.csv")
-suppData$Region <- factor(suppData$Region, levels=c("North Central", "South Central", "balkan", "mediterranean", "HG", "anatoliaEF"))
-
-## color palettes for plotting
 palette2 <- c("#1B9E77", "#82d682", "#D95F02", "#1275A3", "#BB83A1", "#A8DFF1") ## color palette: including HG and EF colors
 palette3 <- c("#1B9E77", "#82d682", "#D95F02", "#1275A3", "grey75") ## color palette: no HG or EF colors, modern samples in grey
 palette4 <- c("#1B9E77", "#82d682", "#D95F02", "#1275A3", "#BB83A1", "#A8DFF1", "grey75") ## color palette: including HG and EF colors, modern samples in grey
 paleoColors <- c("#495B76", "#609FA6") ## color palette: paleopathology presence/absence
 
 ```
-## Results
-```{r Results, echo=FALSE, out.width="50%", warning=FALSE}
-females <- subset(neoOnly, Sex=="F")
-males <- subset(neoOnly, Sex=="M")
 
-ttest1 <- pairwise.t.test(neoOnly$imputed_prs_scaled, neoOnly$Region)
-lm1 <- lm(femur_estimated ~ Sex * Region, data = compiled)
-lm2 <- lm(femur_estimated ~ Region, data=males)
-lm3 <- lm(femur_estimated ~ Region, data=females)
+```{r statTests, echo=FALSE, warning=FALSE}
+female <- subset(neoOnly, Sex=="F")
+male <- subset(neoOnly, Sex=="M")
+
+lm1 <- lm(femur_estimated ~ Region, data=male)
+## change the reference level for females to compare regions with the Mediterranean
+female$Region <- factor(female$Region, levels=c("mediterranean", "North Central", "South Central", "balkan"))
+lm2 <- lm(femur_estimated ~ Region, data=female)
+lm3 <- lm(femur_estimated ~ Sex + Region, data=neoOnly)
+
+ttest1 <- pairwise.t.test(neoOnly$nealeClump_prs, neoOnly$Region)
+lm4 <- lm(nealeLDpred_prs ~ Region, data=neoOnly)
+ttest2 <- pairwise.t.test(neoOnly$siblingLDpred_prs, neoOnly$Region)
+ttest3 <- pairwise.t.test(neoOnly$siblingClump_prs, neoOnly$Region)
+lm5 <- lm(nealeClump_prs ~ Sex * Region, data=neoOnly)
+
+lm6 <- lm(d13C ~ Sex * Region, data=neoOnly)
+lm7 <- lm(d15N ~ Sex * Region, data=neoOnly)
+
+lm8 <- lm(femur_estimated ~ Region, data=female)
+lm9 <- lm(femur_estimated ~ Region, data=male)
+lm10 <- lm(femur_estimated ~ Sex + nealeClump_prs + Region, data = neoOnly)
+
+lm11 <- lm(femur_estimated ~ Sex + Region + d15N, data = neoOnly)
+lm12 <- lm(femur_estimated ~ Sex + Region + d13C, data = neoOnly)
+
+lm13 <- lm(femur_estimated ~ Sex * LEH + Region, data=neoOnly)
+glm1 <- glm(LEH ~ femur_estimated + Sex + Region, data=neoOnly, family="binomial")
+lm14 <- lm(femur_estimated ~ LEH + Region, data=female)
+lm15 <- lm(femur_estimated ~ LEH + Region, data=male)
+glm2 <- glm(CO ~ femur_estimated + Sex + Region, data=neoOnly, family="binomial")
+lm16 <- lm(femur_estimated ~ Sex * CO + Region, data=neoOnly)
+lm17 <- lm(femur_estimated ~ Sex + PH + Region, data=neoOnly)
+glm3 <- glm(PH ~ femur_estimated + Sex + Region, data=neoOnly, family="binomial")
+
+lm18 <- lm(whgProp ~ Region, data=compiled)
+#function for calculating standard error
+se <- function(x) sd(x, na.rm=TRUE)/sqrt(length(x))
+mean_whgprop_north <- mean(compiled[compiled$Region == "North Central", "whgProp"], na.rm=TRUE)
+se_whgprop_north <- se(compiled[compiled$Region == "North Central", "whgProp"])
+mean_whgprop_south <- mean(compiled[compiled$Region == "South Central", "whgProp"], na.rm=TRUE)
+se_whgprop_south <- se(compiled[compiled$Region == "South Central", "whgProp"])
+mean_whgprop_balkan <- mean(compiled[compiled$Region == "balkan", "whgProp"], na.rm=TRUE)
+se_whgprop_balkan <- se(compiled[compiled$Region == "balkan", "whgProp"])
+mean_whgprop_med <- mean(compiled[compiled$Region == "mediterranean", "whgProp"], na.rm=TRUE)
+se_whgprop_med <- se(compiled[compiled$Region == "mediterranean", "whgProp"])
+lm19 <- lm(nealeClump_prs ~ Region, data=compiled)
+lm20 <- lm(femur_estimated ~ Sex + whgProp, data=compiled)
+lm21<- lm(siblingLDpred_prs ~ Region, data=compiled)
+
 ```
 
+``` {r sexDim, echo=FALSE, warning=FALSE}
+## estimate statures using the estimated femora and Ruff et al (2012) stature method
+compiled <- statCalc(compiled, "femur_estimated", "Sex")
+
+## table of sexual dimorphism ratios in femur length (femDiff)
+femDiff <- aggregate(femur_estimated ~ Sex + Region, data=compiled, mean)
+femDiffF <- subset(femDiff, Sex=="F")
+femDiffM <- subset(femDiff, Sex=="M")
+femDiff <- femDiffF[,2:3]
+femDiff$MtoF_femur <- NA
+femDiff$percentDiff <- NA
+for(i in 1:nrow(femDiffF)){
+   femDiff[i,3] <- femDiffM[i,3]/femDiffF[i,3]
+   femDiff[i,4] <- round((femDiffM[i,3] - femDiffF[i,3])/femDiffF[i,3] * 100, 2)
+}
+femDiff <- femDiff[,-2]
+
+## table of sexual dimorphism ratios in stature (femDiff)
+sexDim <- aggregate(stature_est~ Sex + Region, data=compiled, mean)
+sexDimF <- subset(sexDim, Sex=="F")
+sexDimM <- subset(sexDim, Sex=="M")
+sexDim <- sexDimF[,2:3]
+sexDim$MtoF_femur <- NA
+sexDim$percentDiff <- NA
+for(i in 1:nrow(femDiffF)){
+   sexDim[i,3] <- sexDimM[i,3]/sexDimF[i,3]
+   sexDim[i,4] <- round((sexDimM[i,3] - sexDimF[i,3])/sexDimF[i,3] * 100, 2)
+}
+
+```
+
+```{r bayesFactors, echo=FALSE, warning=FALSE}
+
+# Nitrogen is generally elevated in males compared to females, but only significant in the Med lm7
+# model for results in the paper is d15N ~ Sex * Region
+# lm7_na.omit <- na.omit(neoOnly[,c("d15N", "Sex", "Region")])
+# bf7.1a <- lmBF(d15N ~ Sex + Region, data=lm7_na.omit)
+# bf7.1b <- lmBF(d15N ~ Sex, data=lm7_na.omit)
+# bf7.1 <- bf7.1a/bf7.1b
+
+# Males in both regions have qualitatively higher nitrogen, but interaction effect is not significant
+lm7_na.omit <- na.omit(neoOnly[,c("d15N", "Sex", "Region")])
+bf7a <- lmBF(d15N ~ Sex * Region, data=lm7_na.omit)
+bf7b <- lmBF(d15N ~ Sex + Region, data=lm7_na.omit)
+bf7 <- bf7a/bf7b
+
+# *Effect of PRS on femur length is just significant* lm10
+lm10_na.omit <- na.omit(neoOnly[,c("femur_estimated", "Sex", "nealeClump_prs", "Region")])
+bf10a <- lmBF(femur_estimated ~ Sex + nealeClump_prs + Region, data = lm10_na.omit)
+bf10b <- lmBF(femur_estimated ~ Sex + Region, data = lm10_na.omit)
+bf10 <- bf10a/bf10b
+
+# 13C are the same between sexe lm6
+lm6_na.omit <- na.omit(neoOnly[,c("d13C", "Sex", "Region")])
+bf6a <- lmBF(d13C ~ Sex * Region, data = lm6_na.omit)
+bf6b <- lmBF(d13C ~ Sex + Region, data = lm6_na.omit)
+bf6 <- bf6a/bf6b
+
+# No statistical relationship between femur length and 15N lm11
+lm11_na.omit <- na.omit(neoOnly[,c("femur_estimated", "Sex", "d15N", "Region")])
+bf11a <- lmBF(femur_estimated ~ Sex + Region + d15N, data = lm11_na.omit)
+bf11b <- lmBF(femur_estimated ~ Sex + Region, data = lm11_na.omit)
+bf11 <- bf11a/bf11b
+
+# No statistical relationship between femur length and 13C lm12
+lm12_na.omit <- na.omit(neoOnly[,c("femur_estimated", "Sex", "d13C", "Region")])
+bf12a <- lmBF(femur_estimated ~ Sex + Region + d13C, data = lm12_na.omit)
+bf12b <- lmBF(femur_estimated ~ Sex + Region, data = lm12_na.omit)
+bf12 <- bf12a/bf12b
+
+# No difference between incidence of LEH in males vs females glm1
+glm1_na.omit <- na.omit(neoOnly[,c("femur_estimated", "Sex", "LEH", "Region")])
+glm1_na.omit$LEH <- as.numeric(glm1_na.omit$LEH)
+bfg1a <- lmBF(LEH ~ femur_estimated + Sex + Region, data = glm1_na.omit)
+bfg1b <- lmBF(LEH ~ femur_estimated + Region, data = glm1_na.omit)
+bfg1 <- bfg1a/bfg1b
+
+# Interaction effect between sex and LEH on femur length is not significant lm13
+lm13_na.omit <- na.omit(neoOnly[,c("femur_estimated", "Sex", "LEH", "Region")])
+bf13a <- lmBF(femur_estimated ~ Sex * LEH + Region, data = lm13_na.omit)
+bf13b <- lmBF(femur_estimated ~ Sex + LEH + Region, data = lm13_na.omit)
+bf13 <- bf13a/bf13b
+
+# Females with LEH have significantly shorter femora than females without lm14
+lm14_na.omit <- na.omit(female[,c("femur_estimated", "LEH", "Region")])
+bf14a <- lmBF(femur_estimated ~ LEH + Region, data = lm14_na.omit)
+bf14b <- lmBF(femur_estimated ~ Region, data = lm14_na.omit)
+bf14 <- bf14a/bf14b
+
+# Males with LEH have the same femur length as those without lm15
+lm15_na.omit <- na.omit(male[,c("femur_estimated", "LEH", "Region")])
+bf15a <- lmBF(femur_estimated ~ LEH + Region, data = lm15_na.omit)
+bf15b <- lmBF(femur_estimated ~ Region, data = lm15_na.omit)
+bf15 <- bf15a/bf15b
+
+# Cribra has no statistical relationship with femur length lm16
+lm16_na.omit <- na.omit(neoOnly[,c("femur_estimated", "Sex", "CO", "Region")])
+bf16a <- lmBF(femur_estimated ~ Sex * CO + Region, data = lm16_na.omit)
+bf16b <- lmBF(femur_estimated ~ Sex + CO + Region, data = lm16_na.omit)
+bf16 <- bf16a/bf16b
+
+# Frequencies of porotic hyperostosis are not different between North and South glm3
+glm3_na.omit <- na.omit(neoOnly[,c("femur_estimated", "Sex", "PH", "Region")])
+glm3_na.omit$PH <- as.numeric(glm3_na.omit$PH)
+bfg3a <- lmBF(PH ~ femur_estimated + Sex + Region, data = glm3_na.omit)
+bfg3b <- lmBF(PH ~ femur_estimated + Sex, data = glm3_na.omit)
+bfg3 <- bfg3a/bfg3b
+
+# Porotic hyperostosis is not related to femur length lm17
+lm17_na.omit <- na.omit(neoOnly[,c("femur_estimated", "Sex", "PH", "Region")])
+bf17a <- lmBF(femur_estimated ~ Sex + PH + Region, data = lm17_na.omit)
+bf17b <- lmBF(femur_estimated ~ Sex + Region, data = lm17_na.omit)
+bf17 <- bf17a/bf17b
+
+#*Proportions of WHG are weakly associated with femur length* lm20
+lm20_na.omit <- na.omit(neoOnly[,c("femur_estimated", "Sex", "whgProp")])
+bf20a <- lmBF(femur_estimated ~ Sex + whgProp, data = lm20_na.omit)
+bf20b <- lmBF(femur_estimated ~ Sex, data = lm20_na.omit)
+bf20 <- bf20a/bf20b
+
+```
+# Socio-cultural practices may have affected sexual dimorphism in stature in Early Neolithic Europe
+Samantha L Cox, Nicole Nicklisch, Michael Francken, Joachim Wahl, Harald Meller, Wolfgang Haak, Kurt W Alt, Eva Rosenstock, Iain Mathieson
+
+## Results
+### Distribution of stature, polygenic scores, and stable isotope values
+
+- Med males are significantly shorter than Central or Balkans (p=`r round(summary(lm1)$coefficients[4,4], 4)`, beta=`r round(summary(lm1)$coefficients[4,1], 3)`, se=`r round(summary(lm1)$coefficients[4,2], 4)`)
+- Differences between Central and Balkan male femora are very small (North vs. South Central: p=`r round(summary(lm1)$coefficients[2,4], 4)`, beta=`r round(summary(lm1)$coefficients[2,1], 3)`, se=`r round(summary(lm1)$coefficients[2,2], 4)`; North Central vs Balkan: p=`r round(summary(lm1)$coefficients[3,4], 4)`, beta=`r round(summary(lm1)$coefficients[3,1], 3)`, se=`r round(summary(lm1)$coefficients[3,2], 4)`)  
+- Female femora in the Med are similar to those in South Central and Balkan populations (Med vs. South Central: p=`r round(summary(lm2)$coefficients[3,4], 4)`, beta=`r round(summary(lm2)$coefficients[3,1], 3)`, se=`r round(summary(lm2)$coefficients[3,2], 4)`; Med vs Balkan: p=`r round(summary(lm2)$coefficients[4,4], 4)`, beta=`r round(summary(lm2)$coefficients[4,1], 3)`, se=`r round(summary(lm2)$coefficients[4,2], 4)`)
+- Female femora are substantially shorter in the North Central population (p=`r round(summary(lm2)$coefficients[2,4], 4)`, beta=`r round(summary(lm2)$coefficients[2,1], 3)`, se=`r round(summary(lm2)$coefficients[2,2], 4)`)
+- Differences between male and female femur lengths are highly significant in all populations (p=`r round(summary(lm3)$coefficients[2,4], 4)`, beta=`r round(summary(lm3)$coefficients[2,1], 3)`, se=`r round(summary(lm3)$coefficients[2,2], 4)`)
+
+- *PRS for height are very similar between all populations* (min. p=`r round(ttest1$p.value[1,1], 4)`, DF=`r nrow(neoOnly[!(is.na(neoOnly$nealeClump_prs)),]) - 2`)
+- PRS constructed with LDpred show Med individuals are shorter (p=`r round(summary(lm4)$coefficients[4,4], 4)`, beta=`r round(summary(lm4)$coefficients[4,1], 3)`, se=`r round(summary(lm4)$coefficients[4,2], 4)`)
+- *PRS constructed with sibling summary stats show similar PRS in all populations using both LDpred* (min. p-value between Balkans and Mediterranean =`r round(ttest2$p.value[3,3], 4)`, DF=`r nrow(neoOnly[!(is.na(neoOnly$siblingLDpred_prs)),]) - 2`) and clumping/thresholding construction methods (min. p-value between Balkans and Mediterranean =`r round(ttest3$p.value[3,3], 4)`, DF=`r nrow(neoOnly[!(is.na(neoOnly$siblingClump_prs)),]) - 2`)
+- No significant differences between male and female PRS in any population (p=`r round(summary(lm5)$coefficients[4,4], 4)`, beta=`r round(summary(lm5)$coefficients[4,1], 3)`, se=`r round(summary(lm5)$coefficients[4,2], 4)`)
+
+- Med and Balkan groups are significantly distinct from Central Europe in 13C (vs. Balkans p = `r round(summary(lm6)$coefficients[4,4], 4)`, beta=`r round(summary(lm6)$coefficients[4,1], 3)`, se=`r round(summary(lm6)$coefficients[4,2], 4)`; vs. Med p = `r round(summary(lm6)$coefficients[5,4], 4)`, beta=`r round(summary(lm6)$coefficients[5,1], 3)`, se=`r round(summary(lm6)$coefficients[5,2], 4)`)
+- *North Central is different from South Central and Balkan groups 15N* (vs. South Central p = `r round(summary(lm7)$coefficients[3,4], 4)`, beta=`r round(summary(lm7)$coefficients[3,1], 3)`, se=`r round(summary(lm7)$coefficients[3,2], 4)`; vs. Balkans p = `r round(summary(lm7)$coefficients[4,4], 4)`, beta=`r round(summary(lm7)$coefficients[4,1], 3)`, se=`r round(summary(lm7)$coefficients[4,2], 4)`)
+- Nitrogen is generally elevated in males compared to females, but only significant in the Med (p = `r round(summary(lm7)$coefficients[8,4], 4)`, beta=`r round(summary(lm7)$coefficients[8,1], 3)`, se=`r round(summary(lm7)$coefficients[8,2], 4)`, bf=`r bf7@bayesFactor$bf`) **BF indicates that there are no inteaction effects, so differences in N are not systematically different between sexes and regions**
+
+### Patternes of non-genetic factors in Central Europe
+- Female femora in the North are significantly shorter than in the South (p=`r round(summary(lm8)$coefficients[2,4], 4)`; beta=`r summary(lm8)$coefficients[2,1]`, se=`r round(summary(lm8)$coefficients[2,2], 4)`) 
+- Male femora in the North are very similar to those in the South (p=`r round(summary(lm9)$coefficients[2,4], 4)`; beta=`r summary(lm9)$coefficients[2,1]`, se=`r round(summary(lm9)$coefficients[2,2], 4)`)
+- sexual dimorphism ratios (femora)
+`r print(femDiff)`
+- sexual dimorphism ratios (stature)
+`r print(sexDim)`
+- *Effect of PRS on femur length is just significant* (p=`r round(summary(lm10)$coefficients[3,4], 4)`; beta=`r summary(lm10)$coefficients[3,1]`, se=`r round(summary(lm10)$coefficients[3,2], 4)`, bf=`r bf10@bayesFactor$bf`) **BF**
+
+- *South Central Europe has higher 15N than North* (p=`r round(summary(lm7)$coefficients[3,4], 4)`; beta=`r summary(lm7)$coefficients[3,1]`, se=`r round(summary(lm7)$coefficients[3,2], 4)`)
+- *South Central Europe has lower 13C than North* (p=`r round(summary(lm6)$coefficients[3,4], 4)`; beta=`r summary(lm6)$coefficients[3,1]`, se=`r round(summary(lm6)$coefficients[3,2], 4)`)
+- Males in both regions have qualitatively higher nitrogen, but interaction effect is not significant (p=`r round(summary(lm7)$coefficients[6,4], 4)`; beta=`r summary(lm7)$coefficients[6,1]`, se=`r round(summary(lm7)$coefficients[6,2], 4)`, bf=`r bf7@bayesFactor$bf`) **BF**
+- 13C are the same between sexes (p=`r round(summary(lm6)$coefficients[6,4], 4)`; beta=`r summary(lm6)$coefficients[6,1]`, se=`r round(summary(lm6)$coefficients[6,2], 4)`, bf=`r bf6@bayesFactor$bf`) **BF**
+- No statistical relationship between femur length and 15N (p=`r round(summary(lm11)$coefficients[4,4], 4)`; beta=`r summary(lm11)$coefficients[4,1]`, se=`r round(summary(lm11)$coefficients[4,2], 4)`, bf=`r bf11@bayesFactor$bf`) **BF** 
+- No statistical relationship between femur length and 13C (p=`r round(summary(lm12)$coefficients[4,4], 4)`; beta=`r summary(lm12)$coefficients[4,1]`, se=`r round(summary(lm12)$coefficients[4,2], 4)`, bf=`r bf12@bayesFactor$bf`) **BF**
+
+- Femur length is significantly associated with presence of LEH (p=`r round(summary(lm13)$coefficients[3,4], 4)`; beta=`r summary(lm13)$coefficients[3,1]`, se=`r round(summary(lm13)$coefficients[3,2], 4)`)
+- Northern individuals more likely to have LEH than Southern (p=`r round(summary(glm1)$coefficients[4,4], 4)`; beta=`r summary(glm1)$coefficients[4,1]`, se=`r round(summary(glm1)$coefficients[4,2], 4)`)
+- No difference between incidence of LEH in males vs females (p=`r round(summary(glm1)$coefficients[3,4], 4)`; beta=`r summary(glm1)$coefficients[3,1]`, se=`r round(summary(glm1)$coefficients[3,2], 4)`, bf=`r bfg1@bayesFactor$bf`) **BF**
+- Interaction effect between sex and LEH on femur length is not significant (p=`r round(summary(lm13)$coefficients[5,4], 4)`; beta=`r summary(lm13)$coefficients[5,1]`, se=`r round(summary(lm13)$coefficients[5,2], 4)`, bf=`r bf13@bayesFactor$bf`) **BF**
+- Females with LEH have significantly shorter femora than females without (p=`r round(summary(lm14)$coefficients[2,4], 4)`; beta=`r summary(lm14)$coefficients[2,1]`, se=`r round(summary(lm14)$coefficients[2,2], 4)`, bf=`r bf14@bayesFactor$bf`) **BF**
+- Males with LEH have the same femur length as those without (p=`r round(summary(lm15)$coefficients[2,4], 4)`; beta=`r summary(lm15)$coefficients[2,1]`, se=`r round(summary(lm15)$coefficients[2,2], 4)`, bf=`r bf15@bayesFactor$bf`) **BF**
+- Incidence of cribra orbitalia is significantly higher in the North compared to South (p=`r round(summary(glm2)$coefficients[4,4], 4)`; beta=`r summary(glm2)$coefficients[4,1]`, se=`r round(summary(glm2)$coefficients[4,2], 4)`)
+- Cribra has no statistical relationship with femur length (p=`r round(summary(lm16)$coefficients[3,4], 4)`; beta=`r summary(lm16)$coefficients[3,1]`, se=`r round(summary(lm16)$coefficients[3,2], 4)`, bf=`r bf16@bayesFactor$bf`) **BF**
+- Frequencies of porotic hyperostosis are not different between North and South (p=`r round(summary(glm3)$coefficients[4,4], 4)`; beta=`r summary(glm3)$coefficients[4,1]`, se=`r round(summary(glm3)$coefficients[4,2], 4)`, bf=`r bfg3@bayesFactor$bf`) **BF**
+- Porotic hyperostosis is not related to femur length (p=`r round(summary(lm17)$coefficients[3,4], 4)`; beta=`r summary(lm17)$coefficients[3,1]`, se=`r round(summary(lm17)$coefficients[3,2], 4)`, bf=`r bf17@bayesFactor$bf`) **BF**
+
+### Patterns of genetic ancestry in the Mediterranean
+- Proportions of WHG ancestry are significantly higher in the Med as compared to Central Europe (p=`r round(summary(lm18)$coefficients[4,4], 4)`; beta=`r summary(lm17)$coefficients[4,1]`, se=`r round(summary(lm17)$coefficients[4,2], 4)`)
+- Average proportion of WHG ancestry in Med (mean=`r round(mean_whgprop_med*100, 2)`%, se=`r round(se_whgprop_med, 4)*100`%), Balkans (mean=`r round(mean_whgprop_balkan*100, 2)`%, se=`r round(se_whgprop_balkan, 4)*100`%), South Central (mean=`r round(mean_whgprop_south*100, 2)`%, se=`r round(se_whgprop_south, 4)*100`%), North Central (mean=`r round(mean_whgprop_north*100, 2)`%, se=`r round(se_whgprop_north, 4)*100`%)
+- Clumping/thresholding PRS is lowest in WHG (p=`r round(summary(lm19)$coefficients[5,4], 4)`; beta=`r summary(lm19)$coefficients[5,1]`, se=`r round(summary(lm19)$coefficients[5,2], 4)`)
+- Anatolian clumping/thresholding PRS is similar to Balkans and Central Europeans (p=`r round(summary(lm19)$coefficients[6,4], 4)`; beta=`r summary(lm19)$coefficients[6,1]`, se=`r round(summary(lm19)$coefficients[6,2], 4)`)
+- *Proportions of WHG are weakly associated with femur length* (p=`r round(summary(lm20)$coefficients[3,4], 4)`; beta=`r summary(lm20)$coefficients[3,1]`, se=`r round(summary(lm20)$coefficients[3,2], 4)`, bf=`r bf20@bayesFactor$bf`) **BF**
+- WHG PRS is significantly greater than other groups when computed with LDpred and sibling summary stats (p=`r round(summary(lm21)$coefficients[5,4], 4)`; beta=`r summary(lm21)$coefficients[5,1]`, se=`r round(summary(lm21)$coefficients[5,2], 4)`)
 
 ## Fig 2
 ```{r Fig2, echo=FALSE, out.width="50%", warning=FALSE}
@@ -70,8 +287,7 @@ europe <- ne_countries(scale = "medium", returnclass = "sf", continent="Europe")
 map <- ggplot(data = europe) +
   geom_sf() +
   xlab("Longitude") + ylab("Latitude") +
-  geom_point(data=compiled[compiled$dna_ID != "",], aes(x=Longitude, y=Latitude, col=Region)) +
-  #scale_color_brewer(palette="Dark2") +
+  geom_point(data=neoOnly[neoOnly$dna_ID != "",], aes(x=Longitude, y=Latitude, col=Region)) +
   scale_color_manual(values=palette2) +
    coord_sf(xlim = c(-10, 30), ylim = c(35, 55))+
    theme_light() +
@@ -81,8 +297,7 @@ print(map)
 map2 <- ggplot(data = europe) +
   geom_sf() +
   xlab("Longitude") + ylab("Latitude") +
-  geom_point(data=compiled[compiled$metric_ID != "",], aes(x=Longitude, y=Latitude, col=Region)) +
-  #scale_color_brewer(palette="Dark2") +
+  geom_point(data=neoOnly[neoOnly$metric_ID != "",], aes(x=Longitude, y=Latitude, col=Region)) +
   scale_size_continuous(breaks=c(10, 50, 100)) +
    scale_color_manual(values=palette2) +
   coord_sf(xlim = c(-10, 30), ylim = c(35, 55))+
@@ -93,19 +308,19 @@ print(map2)
 ## import the smartPCA data
 impPCA <- read.csv("impPCA_neoData.csv")
 impPCA$Region <- as.factor(impPCA$Region)
-## reorganize factor levels for plotting
+## rearrange factor levels
 impPCA$Region <- factor(impPCA$Region, levels=c("North Central", "South Central", "balkan", 
                                                           "mediterranean", "modern"))
 ## make the imputed PCA plot
 ggplot(data=impPCA, aes(x=PC1, y=-PC2, col=Region, stroke=0)) +
     geom_point() +
     scale_color_manual(values=palette3) +
-    labs(x="PC1", y="PC2") +
     ggtitle("2C) Genetic Ancestry: projected PCA (imputed)") +
     theme_light()
 
 ## plot of all samples by date in years BP
 neoOnly$type <- ifelse(neoOnly$dna_ID != "", "genetic", "skeletal")
+neoOnly$type <- ifelse(neoOnly$type == "skeletal" & neoOnly$isotope_ID != "", "isotopes", "skeletal")
 ggplot(data=neoOnly, aes(x=Region, y=Date, col=Region)) + 
   geom_beeswarm(dodge.width=0.95) +
   scale_color_manual(values=palette2) +
@@ -115,28 +330,10 @@ ggplot(data=neoOnly, aes(x=Region, y=Date, col=Region)) +
   ggtitle("2D) Samples by Date (yearsBP)")
 ```
 
-``` {r sexDim, echo=FALSE, warning=FALSE}
-## table of sexual dimorphism ratios in femur length (femDiff)
-femDiff <- aggregate(femur_estimated ~ Sex + Region, data=compiled, mean)
-femDiffF <- subset(femDiff, Sex=="F")
-femDiffM <- subset(femDiff, Sex=="M")
-femDiff <- femDiffF[,2:3]
-femDiff$MtoF_femur <- NA
-femDiff$percentDiff <- NA
-for(i in 1:nrow(femDiffF)){
-   femDiff[i,4] <- femDiffM[i,3]/femDiffF[i,3]
-   femDiff[i,3] <- (femDiffM[i,3] - femDiffF[i,3])/femDiffF[i,3] * 100
-}
-femDiff <- femDiff[,-2]
-
-print(femDiff)
-```
-
-
 ## Fig 3
 ```{r fig3, echo=FALSE, out.width="50%", warning=FALSE}
 
-ggplot(data=neoOnly, aes(y=imputed_prs_scaled, x=Region, col=Region, shape=Sex, stroke=0)) +
+ggplot(data=neoOnly, aes(y=nealeClump_prs, x=Region, col=Region, shape=Sex, stroke=0)) +
    geom_beeswarm(dodge.width = 0.75) +
    stat_summary( fun = "mean",
                fun.max = function(x) mean(x) + sd(x) / sqrt(length(x)),
@@ -224,7 +421,7 @@ ggplot(data=LEHplot, aes(x=Region, fill=LEH, stroke=0)) +
    theme_light() +
    ggtitle("4B) LBK femur and linear enamel hypoplasia")
 
-ggplot(data=LEHplot[!is.na(LEHplot$Sex) & plotdata$LEH != "",], aes(y=femur_estimated, x=Region, fill=LEH, shape=Sex, stroke=0)) +
+ggplot(data=LEHplot[!is.na(LEHplot$Sex) & LEHplot$LEH != "",], aes(y=femur_estimated, x=Region, fill=LEH, shape=Sex, stroke=0)) +
    geom_beeswarm(dodge.width=0.75, aes(col=LEH)) +
    stat_summary(fun = "mean",
                fun.max = function(x) mean(x) + sd(x) / sqrt(length(x)),
@@ -248,12 +445,12 @@ impPCAall$Region <- factor(impPCAall$Region, levels=c("North Central", "South Ce
 ggplot(data=impPCAall, aes(x=PC1, y=-PC2, col=Region, stroke=0)) +
     geom_point() +
     scale_color_manual(values=palette4) +
-    labs(x="PC1", y="PC2") +
     ggtitle("5A) Genetic Ancestry: projected PCA (imputed)") +
     theme_light()
 
 
 
+#####
 ## read in the ADMIXTURE results 
 mix <- read.table("admixtureData.txt", header=TRUE)
 ## reorder factor levels for plotting
@@ -261,7 +458,7 @@ mix$Region <- factor(mix$Region, levels=c("North Central", "South Central", "bal
                                                 "mediterranean", "HG", "anatoliaEF"))
 ## order dataframe by admixture proportion for plotting
 mix$ID <-fct_reorder(mix$ID, mix$EF)
-## make admixture data long form for plotting
+## reshape admixture data for plotting
 toplotMix <- reshape2::melt(mix, c("ID", "Region", "Sex"))
 toplotMix$variable <- factor(toplotMix$variable, levels=c("EF", "WHG"))
 
@@ -276,7 +473,7 @@ ggplot(data=toplotMix, aes(x=ID, y=value, fill=variable, col=variable), position
         axis.ticks.x=element_blank()) +
   ggtitle("5B) ADMIXTURE")
 
-ggplot(data=compiled, aes(y=prs_scaled, x=Region, col=Region, stroke=0)) +
+ggplot(data=compiled, aes(y=nealeClump_prs, x=Region, col=Region, stroke=0)) +
    geom_beeswarm(cex=2) +
    stat_summary( fun = "mean",
                fun.max = function(x) mean(x) + sd(x) / sqrt(length(x)),
@@ -287,7 +484,7 @@ ggplot(data=compiled, aes(y=prs_scaled, x=Region, col=Region, stroke=0)) +
    theme_light() +
    ggtitle("5C) PRS of Neolithic Europeans, Hunter-Gatherers, and Anatolia Farmers")
 
-ggplot(data=compiled, aes(y=sibling_prs_imputed, x=Region, col=Region, stroke=0)) +
+ggplot(data=compiled, aes(y=siblingClump_prs, x=Region, col=Region, stroke=0)) +
    geom_beeswarm(cex=2) +
    stat_summary( fun = "mean",
                fun.max = function(x) mean(x) + sd(x) / sqrt(length(x)),
@@ -309,20 +506,21 @@ ggvenn(venn, fill_color = c("#0073C2FF", "#EFC000FF", "#CD534CFF", "grey"), stro
   ggtitle("Supp.Fig. 1: Data set counts")
 
 ```
-
 ## Supp Fig 2
 ```{r suppFig2, echo=FALSE, out.width="50%", warning=FALSE}
+sexspecific <- read.csv("sex-specific_prs_data.csv")
+sexspecific$Region <- factor(sexspecific$Region, levels=c("North Central", "South Central", "balkan", "mediterranean", "HG", "anatoliaEF"))
 
-lm41 <- lm(asMales_prs ~ Sex + Region, data=suppData)
-lm42 <- lm(asFemales_prs ~ Sex + Region, data=suppData)
-lm43 <- lm(sexspec_prs ~ Sex + Region, data=suppData)
-lm44 <- lm(combo_prs ~ Sex + Region, data=suppData)
-# lm44 <- lm(clumpImp ~ Region, data=suppData)
-# lm45 <- lm(clumpImp_sibs ~ Region, data=suppData)
-# lm46 <- lm(clumpUnImp ~ Sex * Region, data=suppData)
-# lm47 <- lm(clumpUnImp_sibs ~ Sex * Region, data=suppData)
+lm41 <- lm(asMales_prs ~ Sex + Region, data=sexspecific)
+lm42 <- lm(asFemales_prs ~ Sex + Region, data=sexspecific)
+lm43 <- lm(sexspec_prs ~ Sex + Region, data=sexspecific)
+lm44 <- lm(combo_prs ~ Sex + Region, data=sexspecific)
+# lm44 <- lm(clumpImp ~ Region, data=sexspecific)
+# lm45 <- lm(clumpImp_sibs ~ Region, data=sexspecific)
+# lm46 <- lm(clumpUnImp ~ Sex * Region, data=sexspecific)
+# lm47 <- lm(clumpUnImp_sibs ~ Sex * Region, data=sexspecific)
 
-ggplot(data=suppData, aes(y=combo_prs, x=Region, col=Region, shape=Sex, stroke=0)) +
+ggplot(data=sexspecific, aes(y=combo_prs, x=Region, col=Region, shape=Sex, stroke=0)) +
    #geom_boxplot() +
    geom_beeswarm(dodge.width=0.75, cex=2) +
    stat_summary(fun = "mean",
@@ -334,7 +532,7 @@ ggplot(data=suppData, aes(y=combo_prs, x=Region, col=Region, shape=Sex, stroke=0
    theme_light() +
    ggtitle("A) Neale Lab Combined Sex sumstats")
 
-ggplot(data=suppData, aes(y=asMales_prs, x=Region, col=Region, shape=Sex, stroke=0)) +
+ggplot(data=sexspecific, aes(y=asMales_prs, x=Region, col=Region, shape=Sex, stroke=0)) +
    geom_beeswarm(dodge.width=0.75, cex=2) +
    stat_summary(fun = "mean",
                fun.max = function(x) mean(x) + sd(x) / sqrt(length(x)),
@@ -345,7 +543,7 @@ ggplot(data=suppData, aes(y=asMales_prs, x=Region, col=Region, shape=Sex, stroke
    theme_light() +
    ggtitle("B) Neale Lab Male sumstats")
 
-ggplot(data=suppData, aes(y=asFemales_prs, x=Region, col=Region, shape=Sex, stroke=0)) +
+ggplot(data=sexspecific, aes(y=asFemales_prs, x=Region, col=Region, shape=Sex, stroke=0)) +
    geom_beeswarm(dodge.width=0.75, cex=2) +
    stat_summary(fun = "mean",
                fun.max = function(x) mean(x) + sd(x) / sqrt(length(x)),
@@ -356,7 +554,7 @@ ggplot(data=suppData, aes(y=asFemales_prs, x=Region, col=Region, shape=Sex, stro
    theme_light() +
    ggtitle("C) Neale Lab Female sumstats")
 
-ggplot(data=suppData, aes(y=sexspec_prs, x=Region, col=Region, shape=Sex, stroke=0)) +
+ggplot(data=sexspecific, aes(y=sexspec_prs, x=Region, col=Region, shape=Sex, stroke=0)) +
    geom_beeswarm(dodge.width=0.75, cex=2) +
    stat_summary(fun = "mean",
                fun.max = function(x) mean(x) + sd(x) / sqrt(length(x)),
@@ -372,7 +570,7 @@ ggplot(data=suppData, aes(y=sexspec_prs, x=Region, col=Region, shape=Sex, stroke
 
 ## Supp Fig 3
 ```{r suppFig3, echo=FALSE, warning=FALSE}
-ggplot(data=suppData, aes(y=siblings_prs_ldpred, x=Region, col=Region, stroke=0)) +
+ggplot(data=compiled, aes(y=siblingLDpred_prs, x=Region, col=Region, stroke=0)) +
    geom_beeswarm(cex=2) +
    stat_summary( fun = "mean",
                fun.max = function(x) mean(x) + sd(x) / sqrt(length(x)),
@@ -384,7 +582,7 @@ ggplot(data=suppData, aes(y=siblings_prs_ldpred, x=Region, col=Region, stroke=0)
    geom_signif(comparisons=list(c("Northern LBK", "mediterranean")), test=t.test) + 
    ggtitle("A) Sibling LDPred2 PRS")
 
-ggplot(data=compiled, aes(y=imputed_prs_scaled, x=femur_estimated)) +
+ggplot(data=compiled, aes(y=nealeClump_prs, x=femur_estimated)) +
    geom_point(aes(col=Region)) +
    geom_smooth(method="lm") +
    scale_color_manual(values=palette2) +
@@ -392,6 +590,7 @@ ggplot(data=compiled, aes(y=imputed_prs_scaled, x=femur_estimated)) +
    ggtitle("B) Sibling PRS vs Femur length")
 
 ```
+
 ## Supp Fig 4
 ```{r suppFig4, echo=FALSE, warning=FALSE}
 ## import data for the unimputed Neolithic PCA
@@ -423,3 +622,19 @@ ggplot(data=unimpPCAall, aes(x=-PC1, y=PC2, col=Region, stroke=0)) +
     theme_light()
 ```
 
+## Supp Fig 5
+```{r suppFig5, echo=FALSE, warning=FALSE}
+## import data for the LBK herbivore isotopes
+animals <- read.csv("Animal_isotopes.csv")
+## remove the regional means for plotting
+animals <- animals[-c(104:105),]
+## reorder the factor levels for plotting
+animals$region <- as.factor(animals$region)
+
+ggplot(data=animals, aes(x=d13C, y=d15N, col=region, stroke=0)) +
+    geom_point() +
+    scale_color_manual(values=palette3) +
+    labs(x="delta 13C", y="delta 15N") +
+    ggtitle("Difference in herbivore baseline isotopes for Central Europe") +
+    theme_light()
+```
