@@ -1,3 +1,9 @@
+## function for estimating max. femur length by reversing the statures estimation equations of Bach1965, Breitinger1938, Manouvrier1892,
+## Ruff2012, Sjøvold1990, TrotterGleser1952, Pearson1899, or Olivier1978. The function requires the input of a dataframe with columns called "femur_measured" 
+## (containing the measurements for the femora which have been directly measured), "method" (containing the stature estimation method
+## used. These should be coded as "Bach1965", "Breitinger1938", "Manouvrier1892", "Ruff2012", "Sjøvold1990", "TrotterGleser", 
+## "Pearson1899, "Olivier1978, 'Measured'), "stature" (containing the estimated statures), and "sex" (containing the estimated sexes for each individual). The 
+## function will return the original dataframe with columns "femur_est" and "femur_method" 
 getFemur <- function(datatable){
   df <- datatable
   df$femur_est <- NA
@@ -39,8 +45,9 @@ getFemur <- function(datatable){
   return(df)
 }
 
-#functions in getFemur()
+#functions in for the stature estimation methods. Used in the getFemur() function above
 Manouvrier1892 <- function(datatable, stature, sex){
+  ## these equations were extrapolated from the lookup table in the original publication
   if(sex == "F"){
     if(stature < 155.5){
       femur <- stature/3.8
@@ -126,8 +133,8 @@ Pearson1899 <- function(datatable, stature, sex){
 }
 
 Olivier1978 <- function(datatable, stature, sex){
-  # for estimates using single long bones, Olivier divides his equations by left vs right rides. 
-  # I used the left side eqns here becuase only the left was give for females.
+  # for estimates using single long bones, Olivier divides his equations by left vs right sides. 
+  # I used the left side eqns here because only the left was give for females.
   if(sex == "F"){
     femur <- (stature-70.2)/2.096
   } else if(sex == "M"){
@@ -138,58 +145,10 @@ Olivier1978 <- function(datatable, stature, sex){
   return(femur)
 }
 
-femurCorrect <- function(datatable, regionSpecific){
-  ##create dataframe
-  df <- datatable
-  ##move stature estimates to adjusted stature column
-  df$femur_sexCorrect <- df$femur_est
-  if(regionSpecific == TRUE){
-    regions <- levels(df$geoRegion)
-    for(reg in regions){
-      maleMean <- mean(df[df$Sex == "M" & df$geoRegion == reg, "femur_est"], na.rm=TRUE)
-      femaleMean <- mean(df[df$Sex == "F" & df$geoRegion == reg, "femur_est"], na.rm=TRUE)
-      meanDifference <- maleMean - femaleMean
-      for(i in 1:nrow(df)){
-        if(!is.na(df$Sex[i])){
-          if(df$Sex[i] == "F" & df$geoRegion[i] == reg){
-            df$femur_sexCorrect[i] <- df$femur_est[i] + meanDifference
-          }
-          
-        }
-      }
-    }
-  } else {
-    maleMean <- mean(df[df$Sex == "M", "femur_est"], na.rm=TRUE)
-    femaleMean <- mean(df[df$Sex == "F", "femur_est"], na.rm=TRUE)
-    meanDifference <- maleMean - femaleMean
-    for(i in 1:nrow(df)){
-      if(!is.na(df$Sex[i]) & df$Sex[i] == "F"){
-        df$femur_sexCorrect[i] <- df$femur_est[i] + meanDifference
-      }  else if(is.na(df$Sex[i])){
-        df$femur_sexCorrect[i] <- NA
-      }
-    }
-    # male <- subset(df, df$Sex=="M")
-    # female <- subset(df, df$Sex=="F")
-    ##calculate difference between males and females. Add the difference to all the female values to standardize them.
-    # maleMean <- with(male, mean(male[,"femur_est"], na.rm = TRUE))
-    # femaleMean <- with(female, mean(female[,"femur_est"], na.rm = TRUE))
-    # meanDifference <- maleMean - femaleMean
-    # female[,"femur_sexCorrect"] <- female[,"femur_est"] + meanDifference
-    ##combine males with corrected females
-    # df <- rbind(male, female)
-    ##set any zero measurements to NA to avoid errors from zeros
-    #df$FBIOLN[which(df$FBIOLN == 0.0)] <- NA
-    ##standardize FZX estimations by bodymass and femur length
-    #df$FZX.STD <- df$FZX/(df$BODY.MASS*df$FBIOLN)
-    
-    # row.names(df) <- NULL
-  }
-  return(df)
-}
 
-
-# using Ruff et al 2012
+## function to calculate estimated statures from max. femur length using the method of Ruff et al 2012. Requires input from a dataframe 
+## with a column of femur measurements and a column of sexes for each individual. It returns the original dataframe with a "stature_est" 
+## column.
 statCalc <- function(datatable, femur, sex){
   df <- datatable
   df$stature_est <- NA
